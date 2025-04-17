@@ -1,10 +1,28 @@
+function generatePage(){
+
 const mainContainer = document.getElementById("content");
-const array = JSON.parse("../data.json");
+const array = JSON.parse("../data.json"); //doesnt work rn
+//const array=[{"id":"1","name":"sluchawki","description":"sluchawki gamingowe","price":"30.95"},{"id":"2","name":"myszka","description":"myszka razer","price":"70.25"}];
+console.log("Wykonanie skryptu")
 for (let i = 0; i < array.length; i++) {
+    console.log("Iteracja nr: " +i);
+    // main container:
+    // { 
+    // productContainer : 
+    // { 
+    //      imgContainer: Image, 
+    //      dataContainer: 
+    //      {
+    //          on left[1.name, 2.short description] 
+    //          on right[1.price, 2.button]
+    //      }
+    // }
+    //
     let obj = array[i];
     const productContainer = document.createElement("div"); //float-left split to 2 divs
     productContainer.setAttribute("id",i);
     productContainer.setAttribute("class","product");
+
 
 
     const imgContainer = document.createElement("div");
@@ -12,9 +30,40 @@ for (let i = 0; i < array.length; i++) {
     let path="/images/"+obj.name+".png";
     img.setAttribute("link",path);
     imgContainer.appendChild(img);
+    productContainer.appendChild(imgContainer);
+
+
+
+    const dataContainer = document.createElement("div");
+    const dataLeft = document.createElement("div");
+    const title = document.createElement("h1");
+    title.innerHTML = "TITLE";
+    dataLeft.appendChild(title);
+
+    const description = document.createElement("p");
+    description.innerHTML = "description";
+    dataLeft.appendChild(description);
+    dataContainer.appendChild(dataLeft);
+
+
+    const dataRight = document.createElement("div");
+    const price = document.createElement("h3");
+    price.innerHTML = "2321.92 Zł";
+    dataRight.appendChild(price);
+
+
+    const button = document.createElement("button");
+    button.innerHTML = "Do koszyka";
+    dataRight.appendChild(button);
+    dataContainer.appendChild(dataRight);
+    productContainer.appendChild(dataContainer);
+
+
 
 
     //add div for name,button,price,short description
 
     mainContainer.appendChild(productContainer);
+}
+
 }
