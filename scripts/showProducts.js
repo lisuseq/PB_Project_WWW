@@ -8,8 +8,7 @@ async function getData(path){
 async function generatePage(){
  
 const mainContainer = document.getElementById("content");
-const array = await getData(dataPath); //doesnt work rn
-//const array=[{"id":"1","name":"sluchawki","description":"sluchawki gamingowe","price":"30.95"},{"id":"2","name":"myszka","description":"myszka razer","price":"70.25"}];
+const array = await getData(dataPath);
 console.log("Wykonanie skryptu");
 console.log(array);
 for (let i = 0; i < array.length; i++) {
@@ -35,8 +34,8 @@ for (let i = 0; i < array.length; i++) {
 
     const imgContainer = document.createElement("div");
     const img = document.createElement("img");
-    let path="/images/"+obj.name+".png";
-    img.setAttribute("link",path);
+    let path="../images/"+obj.name+".webp";
+    img.setAttribute("src",path);
     imgContainer.appendChild(img);
     productContainer.appendChild(imgContainer);
 
@@ -45,24 +44,24 @@ for (let i = 0; i < array.length; i++) {
     const dataContainer = document.createElement("div");
     const dataLeft = document.createElement("div");
     const title = document.createElement("h1");
-    title.innerHTML = "TITLE";
+    title.innerHTML = obj.name;
     dataLeft.appendChild(title);
 
     const description = document.createElement("p");
-    description.innerHTML = "description";
+    description.innerHTML = obj.description;
     dataLeft.appendChild(description);
     dataContainer.appendChild(dataLeft);
 
 
     const dataRight = document.createElement("div");
     const price = document.createElement("h3");
-    price.innerHTML = "2321.92 Zł";
+    price.innerHTML = obj.price;
     dataRight.appendChild(price);
 
 
     const button = document.createElement("button");
     button.innerHTML = "Do koszyka";
-    dataRight.appendChild(button);
+    dataRight.appendChild(button); //store id in cookies/session
     dataContainer.appendChild(dataRight);
     productContainer.appendChild(dataContainer);
 
