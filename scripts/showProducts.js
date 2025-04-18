@@ -1,9 +1,17 @@
-function generatePage(){
+const dataPath="../data.json";
+async function getData(path){
+    let raw = await fetch(path);
+    let parsed = await raw.json();
+    return parsed;
+}
 
+async function generatePage(){
+ 
 const mainContainer = document.getElementById("content");
-const array = JSON.parse("../data.json"); //doesnt work rn
+const array = await getData(dataPath); //doesnt work rn
 //const array=[{"id":"1","name":"sluchawki","description":"sluchawki gamingowe","price":"30.95"},{"id":"2","name":"myszka","description":"myszka razer","price":"70.25"}];
-console.log("Wykonanie skryptu")
+console.log("Wykonanie skryptu");
+console.log(array);
 for (let i = 0; i < array.length; i++) {
     console.log("Iteracja nr: " +i);
     // main container:
