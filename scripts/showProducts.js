@@ -59,15 +59,25 @@ for (let i = 0; i < array.length; i++) {
 
     const dataRight = document.createElement("div");
     const price = document.createElement("h3");
-    price.innerHTML = obj.price;
+    price.innerHTML = "Cena: " + obj.price +" zł";
     dataRight.appendChild(price);
 
 
     const button = document.createElement("button");
-    button.innerHTML = "Do koszyka";
+    button.innerHTML = "Dodaj do koszyka";
+    button.setAttribute("id","add_to_cart");
     dataRight.appendChild(button); //store id in cookies/session
+
+    const button2 = document.createElement("button");
+    button2.innerHTML = "Kup Teraz";
+    button2.setAttribute("id","buy_now");
+    dataRight.appendChild(button2); //store id in cookies/session + go to cart/buy page emediately
+
+    dataRight.setAttribute("class","dataRight");
+    dataLeft.setAttribute("class","dataLeft");
     dataContainer.appendChild(dataRight);
     productContainer.appendChild(dataContainer);
+
 
 
 
