@@ -11,8 +11,11 @@ const mainContainer = document.getElementById("content");
 const array = await getData(dataPath);
 console.log("Wykonanie skryptu");
 console.log(array);
+const query = "ra";
+const queryLen = query.length;
 for (let i = 0; i < array.length; i++) {
     console.log("Iteracja nr: " +i);
+    let obj = array[i];
     // main container:
     // { 
     // productContainer : 
@@ -25,7 +28,26 @@ for (let i = 0; i < array.length; i++) {
     //      }
     // }
     //
-    let obj = array[i];
+
+    //ADD SITUATUION WHEN NO PRODS FOUND
+    let check=false;
+    let z=0;
+    let plhdrTxt=obj["name"].toLowerCase();
+    for (let j = 0; j < plhdrTxt.length; j++) {
+
+        if (plhdrTxt[j]==query[z].toLowerCase()) {
+            z++;
+            if (z==queryLen) {
+                console.log("Pasuje query do "+ plhdrTxt);
+                check=true;
+                break;
+            }
+        }else{
+            z=0;
+        }
+    }
+    if (check) {
+    console.log("Iteracja poprawna nr: " +i);
     const productContainer = document.createElement("div"); //float-left split to 2 divs
     productContainer.setAttribute("id",i);
     productContainer.setAttribute("class","product");
@@ -85,6 +107,8 @@ for (let i = 0; i < array.length; i++) {
     //add div for name,button,price,short description
 
     mainContainer.appendChild(productContainer);
+    }
+
 }
 
 }
