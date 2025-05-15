@@ -1,0 +1,43 @@
+body{
+    margin: 0;
+}
+header {
+    width: 100%;
+    height: 40px;
+    background-color: beige;
+}
+#NavCenter{
+    width: 60%;
+    height: 40px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.NavBtn{
+    float: left;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+#content{
+    margin-left: 25%;
+    margin-right: 25%;
+}
+.product{
+    margin:auto;
+    width: 100%;
+    height: 250px;
+}
+.imgContainer{
+    float: left;
+    width:225px;
+    height:250px;
+}
+.dataContainer{
+    float: left;
+}
+
+footer{
+    width: 100%;
+    height: 40px;
+    background-color: beige;
+    float: left;
+}

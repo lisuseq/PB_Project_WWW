@@ -36,8 +36,11 @@ for (let i = 0; i < array.length; i++) {
     const img = document.createElement("img");
     let path="../images/"+obj.name+".webp";
     img.setAttribute("src",path);
+    img.setAttribute("width","225px");
+    img.setAttribute("height","250px");
     imgContainer.appendChild(img);
     productContainer.appendChild(imgContainer);
+    imgContainer.setAttribute("class","imgContainer");
 
 
 
@@ -46,6 +49,7 @@ for (let i = 0; i < array.length; i++) {
     const title = document.createElement("h1");
     title.innerHTML = obj.name;
     dataLeft.appendChild(title);
+    dataContainer.setAttribute("class","dataContainer");
 
     const description = document.createElement("p");
     description.innerHTML = obj.description;
