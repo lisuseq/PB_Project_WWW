@@ -26,8 +26,14 @@ for (let i = 0; i < array.length; i++) {
     // }
     //
     let obj = array[i];
+
     const productContainer = document.createElement("div"); //float-left split to 2 divs
+
+    productContainer.addEventListener("click",()=>{window.location.href='/product.html?id='+i} );
+
+
     productContainer.setAttribute("id",i);
+    productContainer.setAttribute("class","product");
     productContainer.setAttribute("class","product");
 
 
@@ -66,18 +72,23 @@ for (let i = 0; i < array.length; i++) {
     const button = document.createElement("button");
     button.innerHTML = "Dodaj do koszyka";
     button.setAttribute("id","add_to_cart");
+    button.addEventListener("click",(e)=>{e.stopPropagation()});
     dataRight.appendChild(button); //store id in cookies/session
 
     const button2 = document.createElement("button");
     button2.innerHTML = "Kup Teraz";
     button2.setAttribute("id","buy_now");
-    dataRight.appendChild(button2); //store id in cookies/session + go to cart/buy page emediately
+    button2.addEventListener("click",(e)=>{e.stopPropagation()});
+    dataRight.appendChild(button2); //store id in cookies/session + go to cart/buy page immediately
 
     dataRight.setAttribute("class","dataRight");
     dataLeft.setAttribute("class","dataLeft");
     dataContainer.appendChild(dataRight);
     productContainer.appendChild(dataContainer);
 
+
+
+    //linkContainer.appendChild(productContainer);
 
 
 
