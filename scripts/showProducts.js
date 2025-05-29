@@ -40,7 +40,7 @@ for (let i = 0; i < array.length; i++) {
 
     const imgContainer = document.createElement("div");
     const img = document.createElement("img");
-    let path="../images/"+obj.name+".webp";
+    let path="../images/"+obj.id+".webp";
     img.setAttribute("src",path);
     img.setAttribute("width","225px");
     img.setAttribute("height","250px");

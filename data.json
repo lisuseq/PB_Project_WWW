@@ -1,11 +1,11 @@
 [
-    {"id":"1","name":"JBL Tune 720bt","description":"sluchawki blutuf","price":"30.95","details":"Kolor:Czarny;Zasięg:15m;Aktywne usuwanie szumu:Tak;Czas Czuwania:28h;Czas pracy:8h|"},
-    {"id":"2","name":"myszka","description":"myszka razer","price":"70.25"},
-    {"id":"3","name":"glosniki","description":"glosniki logitech","price":"110.00"},
-    {"id":"4","name":"pasta termoprzewodzaca","description":"pasta thermal grizzly","price":"29.99"},
-    {"id":"5","name":"cleaner do monitora","description":"cleaner silver monkey 100ml","price":"25.99"},
-    {"id":"6","name":"klawiatura","description":"corsair rgb","price":"329.99"},
-    {"id":"7","name":"HyperX Cloud Alpha","description":"sluchawki gamingowe","price":"30.95"},
+    {"id":"1","name":"Słuchawki bezprzewodowe JBL Tune 720bt","description":"sluchawki blutuf","price":"30.95","details":"Kolor:Czarny;Zasięg:15m;Aktywne usuwanie szumu:Tak;Czas Czuwania:28h;Czas pracy:8h"},
+    {"id":"2","name":"Gamingowa myszka razer","description":"myszka razer","price":"70.25"},
+    {"id":"3","name":"Głośniki biurowe logitech","description":"glosniki logitech","price":"110.00"},
+    {"id":"4","name":"Pasta termoprzewodząca 10g","description":"pasta thermal grizzly","price":"29.99"},
+    {"id":"5","name":"Płyn do czyszczenia monitorów LCD","description":"cleaner silver monkey 100ml","price":"25.99"},
+    {"id":"6","name":"Klawiatura gamingowa z podświetleniem","description":"corsair rgb","price":"329.99"},
+    {"id":"7","name":"Gamignowe Słuchawki przewodowe HyperX Cloud Alpha","description":"sluchawki gamingowe","price":"30.95"},
     {"id":"7","name":"HyperX Cloud Alpha","description":"sluchawki gamingowe","price":"30.95"},
     {"id":"7","name":"HyperX Cloud Alpha","description":"sluchawki gamingowe","price":"30.95"},
     {"id":"7","name":"HyperX Cloud Alpha","description":"sluchawki gamingowe","price":"30.95"}

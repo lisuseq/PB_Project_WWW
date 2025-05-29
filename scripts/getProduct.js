@@ -25,8 +25,8 @@ for (let i = 0; i < array.length; i++) {
         headerDiv.innerHTML = obj.name;
 
         const imageAnchor = document.getElementById("imageAnchor");
-        imageAnchor.setAttribute("src","images\\"+obj.name+".webp");
-        imageAnchor.setAttribute("alt","obrazek przedstawiający"+obj.name);
+        imageAnchor.setAttribute("src","images\\"+obj.id+".webp");
+        imageAnchor.setAttribute("alt","Obrazek przedstawiający "+obj.name);
 
         const descriptionParagraph = document.getElementById("descrP");
         descriptionParagraph.innerHTML = obj.description;
