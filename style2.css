@@ -52,35 +52,149 @@
     background-color: aqua;
 }
 
+
 body{
     margin: 0;
     font-family: lato;
 }
 header {
     width: 100%;
-    height: 25px;
-    padding-top: 0.5%;
-    padding-bottom: 1%;
+    padding: 0.5% 2%;
     background-color: beige;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+.header-left-section,
+.header-right-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.header-left-section {
+    justify-content: flex-start; 
+}
+#logo{
+    margin-left: 20px;
+    flex-shrink: 0;
+}
+#logo img{
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+
+.header-center-section {
+    display: flex; 
+    justify-content: center;
+    flex-shrink: 0;
 }
 #NavCenter{
-    width: 60%;
-    height: 25px;
-    margin-left: 20%;
-    margin-right: 20%;
-}
-.NavBtn:hover{
-    background-color: azure;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 25px;
 }
 .NavBtn{
+    background-color: beige;
+    border: 0px;
     font-size: 25px;
-    float: left;
-    margin-top: 0%;
-    padding-bottom: 1%;
-    padding-left: 3%;
-    padding-right: 3%;
-    height: 100%;
+    padding: 0.5em;
+    margin: 5px;
+    white-space: nowrap;
 }
+.NavBtn:hover{
+    background-color: rgba(245, 255, 255, 0.5);
+    border-radius: 5%;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.NavBtn:active{
+    background-color: rgba(245, 255, 255, 1);
+}
+.header-right-section {
+    justify-content: flex-end;
+    gap: 5px;
+}
+#searchbar{
+    display: flex;
+}
+#searchbar input[type="text"]{
+    background-color: rgb(250, 250, 250);
+    padding: 10px;
+    border: 1px rgb(245, 245, 220);
+    border-radius: 5%;
+    width: auto;
+    margin-right: 3px;
+}
+#searchbar input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff;
+    background-color: #fff; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transition: 0.15s;
+}
+#lupa{
+    background-color: rgb(210, 210, 210);
+    border: 0px;
+    border-radius: 10%;
+    width: 35px;
+}
+#lupa i {
+        color: #333;
+    }
+#lupa:hover{
+    background-color: rgb(180, 180, 180);
+    transition: 0.25s;
+}
+#lupa:active{
+    background-color: rgb(210, 210, 210);
+}
+#koszyk{
+    background-color: beige;
+    border: 1px rgb(245, 245, 220);
+    border-radius: 25%;
+    height: 70px;
+    width: 70px;
+    padding: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+#koszyk i {
+        color: #333;
+    }
+#koszyk:hover{
+    background-color: rgba(245, 255, 255, 0.5);
+    color: rgb(50,50,50);
+    transition: 0.25s;
+}
+#koszyk:active{
+    background-color: rgba(245, 255, 255, 1);
+    color: rgb(90,90,90);
+    transition: 0.25s;
+}
+
+
+#add_to_cart,
+#buy_now {
+    height: 44px;
+    width: 50%;
+    min-width: 160px; 
+    padding: 0 15px;
+    font-size: 19px; 
+    max-width: 220px;
+    box-sizing: border-box;
+    margin: 0.5em;
+    background-color: beige;
+    border: none;
+}
+#buy_now {
+    margin-top: 0.5%;
+}
+
 
 
 footer{

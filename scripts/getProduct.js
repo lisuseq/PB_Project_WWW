@@ -17,6 +17,17 @@ for (let i = 0; i < array.length; i++) {
     if (searchParams.get('id')==i)
     {
         let obj = array[i];
+
+        const priceDiv = document.getElementById("price");
+        priceDiv.innerHTML = obj.price;
+
+        const headerDiv = document.getElementById("productHeader");
+        headerDiv.innerHTML = obj.name;
+
+        const imageAnchor = document.getElementById("imageAnchor");
+        imageAnchor.setAttribute("src","images\\"+obj.name+".webp");
+        imageAnchor.setAttribute("alt","obrazek przedstawiający"+obj.name);
+
     }
 
 }

@@ -44,6 +44,7 @@ for (let i = 0; i < array.length; i++) {
     img.setAttribute("src",path);
     img.setAttribute("width","225px");
     img.setAttribute("height","250px");
+    img.setAttribute("alt","obrazek przedstawiający "+obj.name);
     imgContainer.appendChild(img);
     productContainer.appendChild(imgContainer);
     imgContainer.setAttribute("class","imgContainer");
