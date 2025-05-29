@@ -30,6 +30,18 @@ for (let i = 0; i < array.length; i++) {
 
         const descriptionParagraph = document.getElementById("descrP");
         descriptionParagraph.innerHTML = obj.description;
+
+        const detailsTab = document.createElement("table");
+        const detailsArray = obj.details.split(";");
+        for (let j = 0; j < detailsArray.length; j++) {
+            const element = detailsArray[j];
+            const splitElement = detailsArray[j].split(":");
+            const trAnchor = document.createElement("tr");
+            trAnchor.innerHTML = "<td>"+splitElement[0]+"</td> <td>"+splitElement[1]+"</td>"; 
+            detailsTab.appendChild(trAnchor);
+        }
+        const detailsDiv = document.getElementById("detailsDiv");
+        detailsDiv.appendChild(detailsTab);
     }
 
 }

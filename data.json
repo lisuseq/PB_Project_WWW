@@ -1,5 +1,5 @@
 [
-    {"id":"1","name":"JBL Tune 720bt","description":"sluchawki blutuf","price":"30.95"},
+    {"id":"1","name":"JBL Tune 720bt","description":"sluchawki blutuf","price":"30.95","details":"Kolor:Czarny;Zasięg:15m;Aktywne usuwanie szumu:Tak;Czas Czuwania:28h;Czas pracy:8h|"},
     {"id":"2","name":"myszka","description":"myszka razer","price":"70.25"},
     {"id":"3","name":"glosniki","description":"glosniki logitech","price":"110.00"},
     {"id":"4","name":"pasta termoprzewodzaca","description":"pasta thermal grizzly","price":"29.99"},
