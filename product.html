@@ -6,6 +6,8 @@
         <title>Pc'townia - Strona główna</title>
         <link rel="stylesheet" href="style.css">
         <script src="scripts/getProduct.js"></script>
+        <script src="scripts/hamburger.js" defer></script>
+        <script src="https://kit.fontawesome.com/8747af3647.js" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
@@ -13,12 +15,30 @@
 
     <body onload="generatePage()">
         <header>
-            <div id="NavCenter">
-                <div class="NavBtn">LOGO</div>
-                <div class="NavBtn">Strona główna</div>
-                <div class="NavBtn">O nas </div>
-                <div class="NavBtn">Promocje </div>
-                <div class="NavBtn">koszyk  🛒</div>
+            <div class="header-left-section">
+                <div id="logo">
+                    <img src="../images/logo.gif">
+                </div>
+                <button id="hamburger">
+                    <i class="fa-solid fa-bars fa-xl"></i>
+                </button>
+            </div>
+            <div class="header-center-section">
+                <div id="NavCenter">
+                    <button class="NavBtn">Strona główna</button>
+                    <button class="NavBtn">O nas </button>
+                    <button class="NavBtn">Promocje </button>
+                </div>
+            </div>
+            <div class="header-right-section">
+                <form id="searchbar">
+                    <input type="text" placeholder="Czego szukasz?"> 
+                    <button id="lupa" type="submit"><i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
+                </form>
+
+                <button id="koszyk" aria-label="Przejdź do koszyka">
+                    <i class="fa-solid fa-cart-shopping fa-2xl"></i>
+                </button>
             </div>
         </header>
         <section id="content"> 
