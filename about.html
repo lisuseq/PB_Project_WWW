@@ -5,16 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pc'townia - Strona główna</title>
         <link rel="stylesheet" href="style.css">
-        <script src="scripts/showProducts.js"></script>
+        <script src="scripts/showBasket.js"></script>
         <script src="scripts/hamburger.js" defer></script>
         <script src="https://kit.fontawesome.com/8747af3647.js" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     </head>
-    <!-- Maybe add coupons to the basket -->
-    <!-- Play with session storage/local storage-->
-    <body onload="generatePage()">
+
+    <body>
         <header>
             <div class="header-left-section">
                 <div id="logo">
@@ -42,37 +41,23 @@
                 </button>
             </div>
         </header>
-        
-        <section id="gallery"> 
-                <div class="carousel-slides-wrapper">
-                    <div class="carousel-slides">
-                        <div class="carousel-slide">
-                                <img src="../images/JBL TUNE 720Bt.webp" alt="jbl">
-                                <h3>Słuchawki</h3>
-                            <p>Fantastyczne słuchawki JBL z super zniżką 50%</p>   
-                        </div>
-                        <div class="carousel-slide">
-                                <img src="../images/HyperX Cloud Alpha.webp" alt="jbl">
-                                <h3>HyperX</h3>
-                            <p>Fantastyczne słuchawki HyperX w zestawie z monitorem</p>   
-                        </div>
-                        <div class="carousel-slide">
-                                <img src="../images/logo.gif" alt="jbl">
-                                <h3>Kotki</h3>
-                            <p>Kotek programista</p>   
-                        </div>
-                        </div>
-                </div>
-                <button class="carousel-button prev" aria-label="Poprzedni slajd"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="carousel-button next" aria-label="Następny slajd"><i class="fa-solid fa-chevron-right"></i></button>
-                <div class="carousel-indicators">
-                </div>
-        </section>
-        <section id="gallery"> <!-- Add rotating gallery -->
-        </section>
-        <section id="content"> <!--Maybe change to container and put genereated data into it in a different div -->
+        <section id="about"> 
+            <h1>Kim jesteśmy?</h1>
+            <p>Jesteśmy sklepem dla komputerowych maniaków i nie tylko, działamy na rynku od 1989 roku. Przez liczne lata wygraliśmy szereg konkursów.</p>
+            <h1>Co można znaleźć w naszej ofercie?</h1>
+            <p>W naszej ofercie można znaleźć między innymi:
+                <ul>
+                    <li>Komputery</li>
+                    <li>Części komputerowe</li>
+                    <li>Peryferia</li>
+                    <li>Płyny oraz narzędzia do naprawy lub pielegnacji komputera</li>
+                </ul>
+            </p>
+            <h1>Jak szybko wysyłamy zamówienia?</h1>
+            <p>Tak szybko jak to tylko możliwe</p>
+            <h1>Czy oferujemy usługę składania komputerów?</h1>
+            <p>Na ten momemnt takowych usług nie oferujemy</p>
         </section>
         <footer>Pc'townia - Wszelkie prawa zastrzeżone 2025 &copy;</footer>
     </body>
-    
 </html>
