@@ -28,6 +28,8 @@ for (let i = 0; i < array.length; i++) {
         imageAnchor.setAttribute("src","images\\"+obj.name+".webp");
         imageAnchor.setAttribute("alt","obrazek przedstawiający"+obj.name);
 
+        const descriptionParagraph = document.getElementById("descrP");
+        descriptionParagraph.innerHTML = obj.description;
     }
 
 }
