@@ -279,16 +279,15 @@ footer{
 }
 @media (max-width: 765px) and (min-width: 481px) {
     #hamburger {
-        display: flex;
+        display: block;
         font-size: 24px;
         margin-left: 13px;
         background: none;
         border: none;
         cursor: pointer;
     }
-
     #NavCenter {
-        display: none;
+        display: flex;
         flex-direction: column;
         align-items: stretch;
         position: absolute;
@@ -297,23 +296,46 @@ footer{
         width: 100%;
         background-color: beige;
         z-index: 1000;
+        padding: 0;
+        box-shadow: none;
+        border-top: none;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+            max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+            padding 0.6s,
+            box-shadow 0.6s,
+            border-top 0.6s,
+            opacity 0.6s;
+    }
+    #NavCenter.nav-active {
+        max-height: 400px;
         padding: 10px 0;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-top: 1px solid #e0e0e0;
+        opacity: 1;
+        pointer-events: auto;
     }
-
-    #NavCenter.nav-active {
-        display: flex;
+    #NavCenter:not(.nav-active) .NavBtn {
+        display: none;
     }
-
+    #NavCenter.nav-active .NavBtn {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.3s, visibility 0.3s;
+    }
     #NavCenter .NavBtn {
         text-align: center;
         margin: 8px 15px;
         padding: 12px 10px;
         font-size: 17px;
         border-bottom: 1px solid #ddd;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
     }
-
     #NavCenter .NavBtn:last-child {
         border-bottom: none;
     }
@@ -375,7 +397,59 @@ footer{
         background: none;
         border: none;
     }
-
+    #NavCenter {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: beige;
+        z-index: 1000;
+        padding: 0;
+        box-shadow: none;
+        border-top: none;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+            max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+            padding 0.6s,
+            box-shadow 0.6s,
+            border-top 0.6s,
+            opacity 0.6s;
+    }
+    #NavCenter.nav-active {
+        opacity: 1;
+        pointer-events: auto;
+        max-height: 400px;
+        padding: 10px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-top: 1px solid #e0e0e0;
+    }
+    #NavCenter:not(.nav-active) .NavBtn {
+        display: none;
+    }
+    #NavCenter.nav-active .NavBtn {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.3s, visibility 0.3s;
+    }
+    #NavCenter .NavBtn {
+        text-align: center;
+        margin: 8px 15px;
+        padding: 12px 10px;
+        font-size: 17px;
+        border-bottom: 1px solid #ddd;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+    }
+    #NavCenter .NavBtn:last-child {
+        border-bottom: none;
+    }
     #searchbar {
         display: flex;
         align-items: center;
@@ -417,34 +491,6 @@ footer{
     #koszyk i {
         font-size: 18px;
         color: #333;
-    }
-    #NavCenter {
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: beige;
-        z-index: 1000;
-        padding: 10px 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-top: 1px solid #e0e0e0;
-    }
-
-    #NavCenter.nav-active {
-        display: flex;
-    }
-    #NavCenter .NavBtn {
-        text-align: center;
-        margin: 8px 15px;
-        padding: 12px 10px;
-        font: 17px;
-        border-bottom: 1px solid #ddd;
-    }
-    #NavCenter .NavBtn:last-child {
-        border-bottom: none;
     }
     #content {
     margin: 10px auto;
