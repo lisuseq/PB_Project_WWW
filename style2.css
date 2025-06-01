@@ -1,61 +1,9 @@
-#content{
-    background-color: aqua;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+*{
+    border: 1px solid red;
+    font-family: lato;
 }
-
-#mainContainer {
-    background-color: #f1f1f1;
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-    padding: 20px;
-    font-size: 30px;
-    width: 50%;
-    min-height: 400px;
-}
-
-.mainContainerSection{
-    background-color: aqua;
-    display: flex;
-    align-items: center;
-    margin: 10px;
-    padding: 20px;
-}
-
-#product{
-    min-height: 400px;
-}
-
-#product > div {
-    flex-direction:row;
-    background-color: #f1f1f1; 
-    margin: 10px;
-    padding: 20px;
-    width: 50%;
-}
-#leftProduct > div {
-    display: flex;
-    flex-direction: column;
-    background-color: aqua;
-}
-
-#rightProduct{
-    min-height: 200px;
-}
-
-#rightProduct > div{
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    background-color: aqua;
-}
-
-
 body{
     margin: 0;
-    font-family: lato;
 }
 header {
     width: 100%;
@@ -194,12 +142,73 @@ header {
 #buy_now {
     margin-top: 0.5%;
 }
+#content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+#mainContainer {
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+    width: 70%;
+    min-height: 400px;
+}
 
+.mainContainerSection{
+    background-color: rgb(232, 244, 254);
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    padding: 20px;
+}
 
+#product{
+    min-height: 400px;
+}
+
+#product > div {
+    flex-direction:row;
+    background-color: rgb(232, 244, 254);
+    margin: 10px;
+    padding: 20px;
+    width: 50%;
+}
+#leftProduct > div {
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+}
+#productHeader{
+    align-items: flex-start;
+    font-size: 20px;
+}
+#rightProduct{
+    min-height: 200px;
+}
+#rightProduct > div{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+}
+#description{
+    align-items: flex-start;
+    flex-direction: column;
+}
+#detailsDiv{
+    background-color: pink;
+}
 footer{
     width: 100%;
+    padding-top: 20px;
+    text-align: center;
     height: 40px;
     background-color: beige;
-    float: left;
+    display: flex;
+    justify-content: center;
 }
