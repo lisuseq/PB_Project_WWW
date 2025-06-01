@@ -40,8 +40,8 @@ for (let i = 0; i < array.length; i++) {
 
     const imgContainer = document.createElement("div");
     const img = document.createElement("img");
-    let path="../images/"+obj.id+".webp";
-    img.setAttribute("src",path);
+    let path = (obj.images && obj.images.length) ? obj.images[0] : "../images/" + obj.id + ".webp";
+    img.setAttribute("src", path);
     img.setAttribute("width","225px");
     img.setAttribute("height","250px");
     img.setAttribute("alt","obrazek przedstawiający "+obj.name);
