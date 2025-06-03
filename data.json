@@ -1,5 +1,13 @@
 [
-    {"id":"1","name":"Słuchawki bezprzewodowe JBL Tune 720bt","description":"sluchawki blutuf","price":"30.95","details":"Kolor:Czarny;Zasięg:15m;Aktywne usuwanie szumu:Tak;Czas Czuwania:28h;Czas pracy:8h"},
+    {"id":"1",
+    "name":"Słuchawki bezprzewodowe JBL Tune 720bt",
+    "description":"sluchawki blutuf","price":"30.95",
+    "details":"Kolor:Czarny;Zasięg:15m;Aktywne usuwanie szumu:Tak;Czas Czuwania:28h;Czas pracy:8h",
+    "images": [
+        "images/1_1.webp",
+        "images/1_2.webp",
+        "images/1_3.webp"
+    ]},
     {"id":"2","name":"Gamingowa myszka razer","description":"myszka razer","price":"70.25"},
     {"id":"3","name":"Głośniki biurowe logitech","description":"glosniki logitech","price":"110.00"},
     {"id":"4","name":"Pasta termoprzewodząca 10g","description":"pasta thermal grizzly","price":"29.99"},
