@@ -11,23 +11,22 @@ const mainContainer = document.getElementById("content");
 const array = await getData(dataPath);
 console.log("Wykonanie skryptu");
 console.log(array);
-const query = "ra";
+const searchParams = new URLSearchParams(window.location.search);
+const query = searchParams.get('phrase');
 const queryLen = query.length;
+
+
+//top bar
+const searchInfo = document.createElement("div");
+searchInfo.innerHTML = '<p> Znaleziono  <p id="count">0</p> wystąpień frazy '+'"'+query+'"'+".</p>"; //change to txt!!!
+mainContainer.appendChild(searchInfo);
+let count = 0;
+const counter = document.getElementById("count");
+
 for (let i = 0; i < array.length; i++) {
     console.log("Iteracja nr: " +i);
     let obj = array[i];
-    // main container:
-    // { 
-    // productContainer : 
-    // { 
-    //      imgContainer: Image, 
-    //      dataContainer: 
-    //      {
-    //          on left[1.name, 2.short description] 
-    //          on right[1.price, 2.button]
-    //      }
-    // }
-    //
+
 
     //ADD SITUATUION WHEN NO PRODS FOUND
     let check=false;
@@ -48,18 +47,27 @@ for (let i = 0; i < array.length; i++) {
     }
     if (check) {
     console.log("Iteracja poprawna nr: " +i);
+    count++;
+    counter.innerText=count;
+
     const productContainer = document.createElement("div"); //float-left split to 2 divs
+
+    productContainer.addEventListener("click",()=>{window.location.href='/product.html?id='+i} );
+
+
     productContainer.setAttribute("id",i);
+    productContainer.setAttribute("class","product");
     productContainer.setAttribute("class","product");
 
 
 
     const imgContainer = document.createElement("div");
     const img = document.createElement("img");
-    let path="../images/"+obj.name+".webp";
-    img.setAttribute("src",path);
+    let path = (obj.images && obj.images.length) ? obj.images[0] : "../images/" + obj.id + ".webp";
+    img.setAttribute("src", path);
     img.setAttribute("width","225px");
     img.setAttribute("height","250px");
+    img.setAttribute("alt","obrazek przedstawiający "+obj.name);
     imgContainer.appendChild(img);
     productContainer.appendChild(imgContainer);
     imgContainer.setAttribute("class","imgContainer");
@@ -88,12 +96,14 @@ for (let i = 0; i < array.length; i++) {
     const button = document.createElement("button");
     button.innerHTML = "Dodaj do koszyka";
     button.setAttribute("id","add_to_cart");
+    button.addEventListener("click",(e)=>{e.stopPropagation()});
     dataRight.appendChild(button); //store id in cookies/session
 
     const button2 = document.createElement("button");
     button2.innerHTML = "Kup Teraz";
     button2.setAttribute("id","buy_now");
-    dataRight.appendChild(button2); //store id in cookies/session + go to cart/buy page emediately
+    button2.addEventListener("click",(e)=>{e.stopPropagation()});
+    dataRight.appendChild(button2); //store id in cookies/session + go to cart/buy page immediately
 
     dataRight.setAttribute("class","dataRight");
     dataLeft.setAttribute("class","dataLeft");
@@ -102,13 +112,24 @@ for (let i = 0; i < array.length; i++) {
 
 
 
+    //linkContainer.appendChild(productContainer);
+
+
+
+
+    //add div for name,button,price,short description
 
 
     //add div for name,button,price,short description
 
     mainContainer.appendChild(productContainer);
     }
-
+    if (count==0) {
+        const response = document.createElement("div");
+        response.innerHTML = '<p> Nie znaleziono żadnych produktów zawierających frazę: "'+query+'" </p>'; //change to txt!!!
+        mainContainer.removeChild(searchInfo);
+        mainContainer.appendChild(response);
+    }
 }
 
 }
