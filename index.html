@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" data-theme="light">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,8 @@
         <script src="scripts/showProducts.js"></script>
         <script src="scripts/redirectToFiltered.js"></script>
         <script src="scripts/hamburger.js" defer></script>
+        <script src="scripts/darktheme.js" defer></script>
+        <script src="scripts/carousel.js" defer></script>
         <script src="https://kit.fontawesome.com/8747af3647.js" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,6 +49,7 @@
                 <button id="koszyk" aria-label="Przejdź do koszyka">
                     <i class="fa-solid fa-cart-shopping fa-2xl"></i>
                 </button>
+                <button onclick="toggleTheme()" id="theme-toggle"></button>
             </div>
         </header>
         
@@ -54,28 +57,28 @@
                 <div class="carousel-slides-wrapper">
                     <div class="carousel-slides">
                         <div class="carousel-slide">
-                                <img src="../images/JBL TUNE 720Bt.webp" alt="jbl">
+                            <a href="produkt1.html">
+                                <img src="../images/1_1.webp" alt="jbl">
                                 <h3>Słuchawki</h3>
-                            <p>Fantastyczne słuchawki JBL z super zniżką 50%</p>   
+                                <p>Fantastyczne słuchawki JBL z super zniżką 50%</p>
+                            </a>
                         </div>
                         <div class="carousel-slide">
-                                <img src="../images/HyperX Cloud Alpha.webp" alt="jbl">
+                                <img src="../images/7.webp" alt="jbl">
                                 <h3>HyperX</h3>
-                            <p>Fantastyczne słuchawki HyperX w zestawie z monitorem</p>   
+                                <p>Fantastyczne słuchawki HyperX w zestawie z monitorem</p>   
                         </div>
                         <div class="carousel-slide">
-                                <img src="../images/logo.gif" alt="jbl">
+                                <img src="../images/1_2.webp" alt="jbl">
                                 <h3>Kotki</h3>
-                            <p>Kotek programista</p>   
+                                <p>Kotek programista</p>   
                         </div>
-                        </div>
+                    </div>
                 </div>
                 <button class="carousel-button prev" aria-label="Poprzedni slajd"><i class="fa-solid fa-chevron-left"></i></button>
                 <button class="carousel-button next" aria-label="Następny slajd"><i class="fa-solid fa-chevron-right"></i></button>
                 <div class="carousel-indicators">
                 </div>
-        </section>
-        <section id="gallery"> <!-- Add rotating gallery -->
         </section>
         <section id="content"> <!--Maybe change to container and put genereated data into it in a different div -->
         </section>
