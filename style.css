@@ -29,7 +29,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: lato;
-    transition:
+    transition: 
         background-color 0.4s cubic-bezier(0.1, -0.6, 0.2, 0),
         color 0.4s cubic-bezier(0.1, -0.6, 0.2, 0),
         box-shadow 0.4s cubic-bezier(0.1, -0.6, 0.2, 0),
@@ -195,10 +195,6 @@ header {
     transition: 0.25s;
 }
 
-/* =================================
-   STYL DLA SUWAKA Z ANIMACJĄ SŁOŃCE/KSIĘŻYC
-   ================================= */
-
 #theme-toggle {
     position: relative;
     width: 60px;
@@ -209,7 +205,7 @@ header {
     border-radius: 30px;
     cursor: pointer;
     transition: background-color 0.6s ease;
-    flex-shrink: 0; /* <<< DODANA POPRAWKA */
+    flex-shrink: 0;
 }
 
 html[data-theme='dark'] #theme-toggle {
@@ -239,7 +235,6 @@ html[data-theme='dark'] #theme-toggle::after {
     box-shadow: 0 0 8px rgba(218, 217, 214, 0.7);
     clip-path: circle(50% at 75% 50%);
 }
-
 
 #gallery {
     position: relative;
@@ -285,8 +280,8 @@ html[data-theme='dark'] #theme-toggle::after {
     border-radius: 10px;
 }
 
-
-.carousel-slide h3, .carousel-slide p {
+.carousel-slide h3, 
+.carousel-slide p {
     margin-top: 0.5em;
 }
 
@@ -320,7 +315,6 @@ html[data-theme='dark'] #theme-toggle::after {
     color: inherit;
     display: block;
 }
-
 
 #content {
     width: 90%;
@@ -397,10 +391,6 @@ footer {
     color: var(--text-color);
 }
 
-/* =================================
-   STYLE DLA STRONY "O NAS"
-   ================================= */
-
 #about {
     max-width: 900px;
     margin: 40px auto;
@@ -458,7 +448,6 @@ footer {
     top: 11px;
 }
 
-
 @media (max-width: 1024px) {
     .header-left-section {
         flex: 0.5;
@@ -497,6 +486,7 @@ footer {
     #koszyk {
         height: 67px;
     }
+
     .carousel-slide {
         padding: 0.5rem;
     }
@@ -509,6 +499,7 @@ footer {
         padding: 0.5rem;
         font-size: 1.2rem;
     }
+
     .product {
         flex-direction: column;
         height: auto;
@@ -812,10 +803,12 @@ footer {
     .carousel-slide img {
         height: 40vh;
     }
+
     .carousel-button {
         padding: 0.4rem;
         font-size: 1rem;
     }
+
     #content {
         margin: 10px auto;
         width: 90%;
@@ -869,7 +862,8 @@ footer {
         font-size: 22px;
     }
 
-    #about p, #about li {
+    #about p, 
+    #about li {
         font-size: 15px;
     }
 }
