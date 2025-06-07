@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" data-theme="light">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pc'townia - Strona główna</title>
         <link rel="stylesheet" href="style.css">
-        <script src="scripts/showBasket.js"></script>
+        <script src="scripts/showProducts.js"></script>
         <script src="scripts/redirectToFiltered.js"></script>
         <script src="scripts/hamburger.js" defer></script>
+        <script src="scripts/darktheme.js" defer></script>
         <script src="https://kit.fontawesome.com/8747af3647.js" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,24 +47,35 @@
                 <button id="koszyk" aria-label="Przejdź do koszyka">
                     <i class="fa-solid fa-cart-shopping fa-2xl"></i>
                 </button>
+                <button onclick="toggleTheme()" id="theme-toggle"></button>
             </div>
         </header>
         <section id="about"> 
-            <h1>Kim jesteśmy?</h1>
-            <p>Jesteśmy sklepem dla komputerowych maniaków i nie tylko, działamy na rynku od 1989 roku. Przez liczne lata wygraliśmy szereg konkursów.</p>
-            <h1>Co można znaleźć w naszej ofercie?</h1>
-            <p>W naszej ofercie można znaleźć między innymi:
+            <div class="about-item">
+                <h1>Kim jesteśmy?</h1>
+                <p>Jesteśmy sklepem dla komputerowych maniaków i nie tylko, działamy na rynku od 1989 roku. Przez liczne lata wygraliśmy szereg konkursów, co świadczy o naszej pasji i zaangażowaniu w dostarczanie najlepszych rozwiązań dla naszych klientów.</p>
+            </div>
+            
+            <div class="about-item">
+                <h1>Co można znaleźć w naszej ofercie?</h1>
+                <p>W naszej ofercie można znaleźć między innymi:</p>
                 <ul>
-                    <li>Komputery</li>
-                    <li>Części komputerowe</li>
-                    <li>Peryferia</li>
-                    <li>Płyny oraz narzędzia do naprawy lub pielegnacji komputera</li>
+                    <li>Komputery stacjonarne i laptopy</li>
+                    <li>Podzespoły komputerowe (CPU, GPU, RAM)</li>
+                    <li>Peryferia (monitory, klawiatury, myszy)</li>
+                    <li>Płyny oraz narzędzia do naprawy i pielęgnacji komputera</li>
                 </ul>
-            </p>
-            <h1>Jak szybko wysyłamy zamówienia?</h1>
-            <p>Tak szybko jak to tylko możliwe</p>
-            <h1>Czy oferujemy usługę składania komputerów?</h1>
-            <p>Na ten momemnt takowych usług nie oferujemy</p>
+            </div>
+
+            <div class="about-item">
+                <h1>Jak szybko wysyłamy zamówienia?</h1>
+                <p>Dbamy o to, by zamówienia były realizowane błyskawicznie. Standardowo paczki wysyłane są w ciągu 24 godzin od momentu złożenia zamówienia w dni robocze.</p>
+            </div>
+
+            <div class="about-item">
+                <h1>Czy oferujemy usługę składania komputerów?</h1>
+                <p>Na ten moment takowych usług nie oferujemy, ale planujemy wprowadzić je w przyszłości. Śledź naszą stronę, aby być na bieżąco!</p>
+            </div>
         </section>
         <footer>Pc'townia - Wszelkie prawa zastrzeżone 2025 &copy;</footer>
     </body>
