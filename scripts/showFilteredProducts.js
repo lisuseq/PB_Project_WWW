@@ -28,7 +28,7 @@ for (let i = 0; i < array.length; i++) {
     let obj = array[i];
 
 
-    //ADD SITUATUION WHEN NO PRODS FOUND
+    //ADD SITUATUION WHEN NO PRODS FOUND ok BUT WHEN 1 PRODUCT DOESNT WORK AND SAYS ZERO FOUND
     let check=false;
     let z=0;
     let plhdrTxt=obj["name"].toLowerCase();
@@ -133,3 +133,4 @@ for (let i = 0; i < array.length; i++) {
 }
 
 }
+
