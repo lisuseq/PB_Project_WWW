@@ -1,6 +1,3 @@
-/* =================================
-   SYSTEM ZMIENNYCH DLA MOTYWÓW
-   ================================= */
 :root {
     --bg-color: #F4F7FB;
     --text-color: #1F1F1F;
@@ -21,9 +18,6 @@
     --promo-color: #C845E0;
 }
 
-/* =================================
-   STYLE GLOBALNE
-   ================================= */
 html, body {
     overflow-x: hidden;
     background-color: var(--bg-color);
@@ -42,9 +36,6 @@ html, body {
         border-color 0.4s cubic-bezier(0.1, -0.6, 0.2, 0);
 }
 
-/* =================================
-   NAGŁÓWEK (UJEDNOLICONY Z style.css)
-   ================================= */
 header {
     width: 100%;
     padding: 0.5% 2%;
@@ -180,29 +171,23 @@ header {
     background-color: var(--border-color);
 }
 
-/* =================================
-   STYL DLA SUWAKA Z ANIMACJĄ SŁOŃCE/KSIĘŻYC
-   ================================= */
-
 #theme-toggle {
     position: relative;
     width: 60px;
     height: 30px;
     padding: 0;
-    background-color: #87CEEB; /* Jasnoniebieskie tło dnia */
+    background-color: #87CEEB;
     border: 1px solid var(--border-color);
     border-radius: 30px;
     cursor: pointer;
     transition: background-color 0.6s ease;
-    flex-shrink: 0; /* <<< POPRAWKA 1: Zapobiega ściskaniu przycisku */
+    flex-shrink: 0;
 }
 
-/* Kiedy strona jest w trybie ciemnym, zmień tło suwaka na ciemnoniebieskie */
 html[data-theme='dark'] #theme-toggle {
-    background-color: #2c3e50; /* Ciemnoniebieskie tło nocy */
+    background-color: #2c3e50;
 }
 
-/* Tworzymy ikonę słońca/księżyca za pomocą pseudoelementu ::after */
 #theme-toggle::after {
     content: '';
     position: absolute;
@@ -210,39 +195,23 @@ html[data-theme='dark'] #theme-toggle {
     left: 2px;
     width: 24px;
     height: 24px;
-    background-color: #FFD700; /* Kolor słońca */
+    background-color: #FFD700;
     border-radius: 50%;
-    
-    /* Cień słońca i księżyca dla lepszego efektu */
     box-shadow: 0 0 5px rgba(255, 215, 0, 0.8);
-
-    /* --- NAJWAŻNIEJSZA CZĘŚĆ: ANIMACJA --- */
     transition: 
-        transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), /* Przesunięcie i obrót */
-        background-color 0.5s ease, /* Zmiana koloru */
-        box-shadow 0.5s ease,       /* Zmiana cienia */
-        clip-path 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Animacja wycinania */
+        transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+        background-color 0.5s ease,
+        box-shadow 0.5s ease,
+        clip-path 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
-/* --- LOGIKA ZMIANY --- */
-/* Kiedy <html> ma atrybut data-theme='dark'... */
 html[data-theme='dark'] #theme-toggle::after {
-    /* 1. Przesuń ikonę w prawo I OBRÓĆ JĄ (to było brakującym elementem) */
     transform: translateX(30px);
-    
-    /* 2. Zmień kolor na księżycowy */
-    background-color: #dad9d6; 
-
-    /* 3. Zmień cień na księżycowy */
+    background-color: #dad9d6;
     box-shadow: 0 0 8px rgba(218, 217, 214, 0.7);
-    
-    /* 4. Wytnij fragment, tworząc sierp księżyca */
     clip-path: circle(50% at 75% 50%);
 }
 
-/* =================================
-   ZAWARTOŚĆ STRONY PRODUKTU
-   ================================= */
 #content {
     width: 100%;
     padding: 20px 0;
@@ -269,7 +238,10 @@ html[data-theme='dark'] #theme-toggle::after {
     gap: 30px;
 }
 
-#leftProduct { flex: 1 1 40%; }
+#leftProduct { 
+    flex: 1 1 40%; 
+}
+
 #rightProduct {
     flex: 1 1 60%;
     display: flex;
@@ -297,23 +269,39 @@ html[data-theme='dark'] #theme-toggle::after {
     object-fit: contain;
 }
 
-#productHeader { font-size: 28px; font-weight: 700; }
-#price { font-size: 24px; font-weight: bold; }
-#buy_now, #add_to_cart { width: auto; }
+#productHeader { 
+    font-size: 28px; 
+    font-weight: 700; 
+}
 
-#buy_now button, #add_to_cart button {
+#price { 
+    font-size: 24px; 
+    font-weight: bold; 
+}
+
+#buy_now, 
+#add_to_cart { 
+    width: auto; 
+}
+
+#buy_now button, 
+#add_to_cart button {
     width: 100%;
     min-width: 200px;
     padding: 12px 25px;
     font-size: 16px;
     color: white;
     background-color: var(--accent-color);
-    border:none;
+    border: none;
     border-radius: 0;
     text-transform: uppercase;
-    cursor:pointer;
+    cursor: pointer;
 }
-#buy_now button:hover, #add_to_cart button:hover { background-color: var(--accent-secondary); }
+
+#buy_now button:hover, 
+#add_to_cart button:hover { 
+    background-color: var(--accent-secondary); 
+}
 
 .carousel-btn {
     display: none;
@@ -331,19 +319,44 @@ html[data-theme='dark'] #theme-toggle::after {
     border-radius: 10%;
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
-#prevBtn { left: 10px; }
-#nextBtn { right: 10px; }
 
-#description h2 { font-size: 24px; margin-bottom: 15px; }
-#descrP { font-size: 16px; line-height: 1.6; }
-#detailsDiv table { width: 100%; border-collapse: collapse; font-size: 16px; }
-#detailsDiv td { padding: 10px; border-bottom: 1px solid var(--border-color); }
-#detailsDiv tr:last-child td { border-bottom: none; }
-#detailsDiv td:first-child { font-weight: bold; }
+#prevBtn { 
+    left: 10px; 
+}
 
-/* =================================
-   STOPKA
-   ================================= */
+#nextBtn { 
+    right: 10px; 
+}
+
+#description h2 { 
+    font-size: 24px; 
+    margin-bottom: 15px; 
+}
+
+#descrP { 
+    font-size: 16px; 
+    line-height: 1.6; 
+}
+
+#detailsDiv table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    font-size: 16px; 
+}
+
+#detailsDiv td { 
+    padding: 10px; 
+    border-bottom: 1px solid var(--border-color); 
+}
+
+#detailsDiv tr:last-child td { 
+    border-bottom: none; 
+}
+
+#detailsDiv td:first-child { 
+    font-weight: bold; 
+}
+
 footer {
     width: 100%;
     padding: 20px;
@@ -353,31 +366,73 @@ footer {
     border-top: 1px solid var(--border-color);
 }
 
-/* =================================
-   RESPONSYWNOŚĆ (UJEDNOLICONA Z style.css)
-   ================================= */
-
 @media (max-width: 1024px) {
-    .header-left-section { flex: 0.5; }
-    #NavCenter { flex-wrap: wrap; }
-    .NavBtn { font-size: 22px; padding: 8px 12px; }
-    #koszyk { border-radius: 25%; }
+    .header-left-section { 
+        flex: 0.5; 
+    }
+    
+    #NavCenter { 
+        flex-wrap: wrap; 
+    }
+    
+    .NavBtn { 
+        font-size: 22px; 
+        padding: 8px 12px; 
+    }
+    
+    #koszyk { 
+        border-radius: 25%; 
+    }
 }
 
 @media (max-width: 768px) {
-    header { height: 70px; }
-    .NavBtn { font-size: 20px; }
-    #koszyk { height: 67px; }
+    header { 
+        height: 70px; 
+    }
+    
+    .NavBtn { 
+        font-size: 20px; 
+    }
+    
+    #koszyk { 
+        height: 67px; 
+    }
 
-    #product { flex-direction: column; align-items: center; text-align: center; }
-    #rightProduct { align-items: center; text-align: center; }
-    .carousel-btn { display: block; }
-    #buy_now, #add_to_cart { width: 90%; max-width: 300px; }
-    #buy_now button, #add_to_cart button { width: 100%; padding: 12px; }
+    #product { 
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+    }
+    
+    #rightProduct { 
+        align-items: center; 
+        text-align: center; 
+    }
+    
+    .carousel-btn { 
+        display: block; 
+    }
+    
+    #buy_now, 
+    #add_to_cart { 
+        width: 90%; 
+        max-width: 300px; 
+    }
+    
+    #buy_now button, 
+    #add_to_cart button { 
+        width: 100%; 
+        padding: 12px; 
+    }
 }
 
 @media (max-width: 765px) and (min-width: 481px) {
-    #hamburger { display: block; font-size: 24px; margin-left: 13px; }
+    #hamburger { 
+        display: block; 
+        font-size: 24px; 
+        margin-left: 13px; 
+    }
+    
     #NavCenter {
         display: flex;
         flex-direction: column;
@@ -394,8 +449,14 @@ footer {
         overflow: hidden;
         opacity: 0;
         pointer-events: none;
-        transition: max-height 0.6s, padding 0.6s, box-shadow 0.6s, border-top 0.6s, opacity 0.6s;
+        transition: 
+            max-height 0.6s, 
+            padding 0.6s, 
+            box-shadow 0.6s, 
+            border-top 0.6s, 
+            opacity 0.6s;
     }
+    
     #NavCenter.nav-active {
         max-height: 400px;
         padding: 10px 0;
@@ -404,10 +465,28 @@ footer {
         opacity: 1;
         pointer-events: auto;
     }
-    #NavCenter:not(.nav-active) .NavBtn { display: none; }
-    #NavCenter.nav-active .NavBtn { opacity: 1; visibility: visible; }
-    #NavCenter .NavBtn { text-align: center; margin: 8px 15px; padding: 12px 10px; font-size: 17px; opacity: 0; visibility: hidden; }
-    #lupa { display: none; }
+    
+    #NavCenter:not(.nav-active) .NavBtn { 
+        display: none; 
+    }
+    
+    #NavCenter.nav-active .NavBtn { 
+        opacity: 1; 
+        visibility: visible; 
+    }
+    
+    #NavCenter .NavBtn { 
+        text-align: center; 
+        margin: 8px 15px; 
+        padding: 12px 10px; 
+        font-size: 17px; 
+        opacity: 0; 
+        visibility: hidden; 
+    }
+    
+    #lupa { 
+        display: none; 
+    }
 }
 
 @media (max-width: 480px) {
@@ -416,9 +495,22 @@ footer {
         padding: 0 10px;
         justify-content: space-between;
     }
-    .header-left-section { gap: 10px; }
-    #logo img { height: 32px; }
-    #hamburger { display: flex; font-size: 22px; padding: 0; margin-left: 8px; }
+    
+    .header-left-section { 
+        gap: 10px; 
+    }
+    
+    #logo img { 
+        height: 32px; 
+    }
+    
+    #hamburger { 
+        display: flex; 
+        font-size: 22px; 
+        padding: 0; 
+        margin-left: 8px; 
+    }
+    
     #NavCenter {
         display: flex;
         flex-direction: column;
@@ -435,8 +527,11 @@ footer {
         overflow: hidden;
         opacity: 0;
         pointer-events: none;
-        transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s;
+        transition: 
+            max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+            opacity 0.6s;
     }
+    
     #NavCenter.nav-active {
         opacity: 1;
         pointer-events: auto;
@@ -445,12 +540,39 @@ footer {
         background-color: var(--bg-color);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    #NavCenter:not(.nav-active) .NavBtn { display: none; }
-    #NavCenter.nav-active .NavBtn { opacity: 1; visibility: visible; }
-    #NavCenter .NavBtn { text-align: center; margin: 8px 15px; padding: 12px 10px; font-size: 17px; opacity: 0; visibility: hidden; }
-    #searchbar { flex-grow: 1; flex-shrink: 1; }
-    #searchbar input[type="text"] { width: 100%; font-size: 13px; }
-    #lupa { display: none; }
+    
+    #NavCenter:not(.nav-active) .NavBtn { 
+        display: none; 
+    }
+    
+    #NavCenter.nav-active .NavBtn { 
+        opacity: 1; 
+        visibility: visible; 
+    }
+    
+    #NavCenter .NavBtn { 
+        text-align: center; 
+        margin: 8px 15px; 
+        padding: 12px 10px; 
+        font-size: 17px; 
+        opacity: 0; 
+        visibility: hidden; 
+    }
+    
+    #searchbar { 
+        flex-grow: 1; 
+        flex-shrink: 1; 
+    }
+    
+    #searchbar input[type="text"] { 
+        width: 100%; 
+        font-size: 13px; 
+    }
+    
+    #lupa { 
+        display: none; 
+    }
+    
     #koszyk {
         width: 45px;
         height: 45px;
@@ -459,21 +581,22 @@ footer {
         align-items: center;
         justify-content: center;
     }
-    #koszyk i { font-size: 18px; }
     
-    /* <<< POPRAWKA 2: Style responsywne dla przełącznika motywu >>> */
+    #koszyk i { 
+        font-size: 18px; 
+    }
+    
     #theme-toggle {
         width: 50px;
         height: 25px;
     }
 
     #theme-toggle::after {
-        width: 21px; /* Mniejsze kółko */
+        width: 21px;
         height: 21px;
     }
 
     html[data-theme='dark'] #theme-toggle::after {
-        /* Mniejszy dystans przesunięcia, dopasowany do nowego rozmiaru */
         transform: translateX(25px);
     }
 }
