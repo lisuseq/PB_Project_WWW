@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" data-theme="light">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,8 @@
         <script src="scripts/showFilteredProducts.js"></script>
         <script src="scripts/redirectToFiltered.js"></script>
         <script src="scripts/hamburger.js" defer></script>
+        <script src="scripts/darktheme.js" defer></script>
+        <script src="scripts/carousel.js" defer></script>
         <script src="https://kit.fontawesome.com/8747af3647.js" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,10 +42,10 @@
                     <input type="text" id="searchPhrase" placeholder="Czego szukasz?"> 
                     <button id="lupa" type="button" onclick="activateSearch(document.getElementById('searchPhrase').value)" ><i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
                 </form>
-
                 <button id="koszyk" onclick="goToBasket()" aria-label="Przejdź do koszyka">
                     <i class="fa-solid fa-cart-shopping fa-2xl"></i>
                 </button>
+                <button onclick="toggleTheme()" id="theme-toggle"></button>
             </div>
         </header>
         
