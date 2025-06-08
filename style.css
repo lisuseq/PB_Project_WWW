@@ -29,11 +29,13 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: lato;
+    /* --- POPRAWKA --- */
+    /* Zmieniono wadliwą funkcję cubic-bezier na standardową 'ease' dla płynnych animacji */
     transition: 
-        background-color 0.4s cubic-bezier(0.1, -0.6, 0.2, 0),
-        color 0.4s cubic-bezier(0.1, -0.6, 0.2, 0),
-        box-shadow 0.4s cubic-bezier(0.1, -0.6, 0.2, 0),
-        border-color 0.4s cubic-bezier(0.1, -0.6, 0.2, 0);
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
 }
 
 header {
@@ -317,6 +319,7 @@ html[data-theme='dark'] #theme-toggle::after {
 }
 
 #content {
+    height: 100%;
     width: 90%;
     max-width: 1200px;
     margin: 20px auto;
@@ -338,9 +341,14 @@ html[data-theme='dark'] #theme-toggle::after {
     margin-top: 1em;
     width: 100%;
     min-height: 150px;
+    height: 150px;
     display: flex;
     border-radius: 4px;
     overflow: hidden;
+}
+.dataLeft h1{
+    font-size: 20px;
+    padding: 5px;
 }
 
 .imgContainer {
@@ -389,6 +397,38 @@ html[data-theme='dark'] #theme-toggle::after {
     background-color: var(--accent-secondary);
     transition: 0.2s;
 }
+
+/* === DODANE/ZAKTUALIZOWANE STYLE DLA PUSTEGO KOSZYKA === */
+.product-basket.empty-basket {
+    display: flex;
+    justify-content: center; /* Wycentrowanie w poziomie */
+    align-items: center;     /* Wycentrowanie w pionie */
+    text-align: center;
+    padding: 2rem;
+    min-height: 250px;
+    height: auto;            /* Nadpisanie stałej wysokości */
+}
+
+.product-basket.empty-basket p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.product-basket.empty-basket a {
+    color: var(--accent-color);
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-secondary);
+    padding-bottom: 2px;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.product-basket.empty-basket a:hover {
+    color: var(--accent-secondary);
+    border-bottom-color: var(--accent-color);
+}
+/* === KONIEC DODANYCH STYLI === */
+
 
 footer {
     width: 100%;
@@ -482,19 +522,29 @@ footer {
         align-items: center;
     }
 }
-
+@media (max-width: 900px) and (min-width: 768px){
+    header{
+        flex-direction: column;
+    }
+    .header-center-section,
+    .header-right-section{
+        display: flex;
+    }
+}
 @media (max-width: 768px) {
     header {
-        height: 70px;
+        height: 100px;
     }
-
+    .header-left-section{
+        margin-bottom: 0.5em;
+    }
     .NavBtn {
         font-size: 20px;
         padding: 0.4em 0.8em;
     }
 
     #koszyk {
-        height: 67px;
+        height: 50px;
     }
 
     .carousel-slide {
@@ -545,9 +595,22 @@ footer {
         width: 80%;
         max-width: 250px;
     }
+
+    /* === DODANE STYLE RESPONSIVE === */
+    .product-basket.empty-basket {
+        min-height: 200px;
+        padding: 1.5rem;
+    }
+    .product-basket.empty-basket p {
+        font-size: 1.1em;
+    }
+    /* === KONIEC DODANYCH STYLI === */
 }
 
 @media (max-width: 765px) and (min-width: 481px) {
+    header{
+        flex-direction: column;
+    }
     #hamburger {
         display: block;
         font-size: 24px;
@@ -562,7 +625,7 @@ footer {
         flex-direction: column;
         align-items: stretch;
         position: absolute;
-        top: 70px;
+        top: 130px;
         left: 0;
         width: 100%;
         z-index: 1000;
@@ -582,6 +645,7 @@ footer {
     }
 
     #NavCenter.nav-active {
+        
         max-height: 400px;
         padding: 10px 0;
         background-color: var(--bg-color);
@@ -650,9 +714,7 @@ footer {
     header {
         height: 60px;
         padding: 0 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
     }
 
     .header-left-section {
@@ -685,7 +747,7 @@ footer {
         flex-direction: column;
         align-items: stretch;
         position: absolute;
-        top: 60px;
+        top: 100px;
         left: 0;
         width: 100%;
         z-index: 1000;
@@ -696,14 +758,14 @@ footer {
         overflow: hidden;
         opacity: 0;
         pointer-events: none;
+        /* --- POPRAWKA --- */
+        /* Usunięto wadliwe animacje kolorów, które są teraz obsługiwane przez globalną regułę '*' */
         transition:
             max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
             padding 0.6s,
             box-shadow 0.6s,
             border-top 0.6s,
-            opacity 0.6s,
-            background-color 0.4s cubic-bezier(0.1, -0.6, 0.2, 0),
-            color 0.4s cubic-bezier(0.1, -0.6, 0.2, 0);
+            opacity 0.6s;
     }
 
     #NavCenter.nav-active {
@@ -713,14 +775,14 @@ footer {
         padding: 10px 0;
         background-color: var(--bg-color);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* --- POPRAWKA --- */
+        /* Usunięto wadliwe animacje kolorów, które są teraz obsługiwane przez globalną regułę '*' */
         transition:
             max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
             padding 0.6s,
             box-shadow 0.6s,
             border-top 0.6s,
-            opacity 0.6s,
-            background-color 0.4s cubic-bezier(0.1, -0.6, 0.2, 0),
-            color 0.4s cubic-bezier(0.1, -0.6, 0.2, 0);
+            opacity 0.6s;
     }
 
     #NavCenter:not(.nav-active) .NavBtn {
@@ -730,10 +792,12 @@ footer {
     #NavCenter.nav-active .NavBtn {
         opacity: 1;
         visibility: visible;
+        /* --- POPRAWKA --- */
+        /* Zmieniono wadliwą funkcję cubic-bezier na standardową 'ease' */
         transition:
-            background-color 0.4s cubic-bezier(0.1, -0.6, 0.2, 0),
-            color 0.4s cubic-bezier(0.1, -0.6, 0.2, 0),
-            box-shadow 0.2s cubic-bezier(0.1, -0.6, 0.2, 0),
+            background-color 0.3s ease,
+            color 0.3s ease,
+            box-shadow 0.3s ease,
             opacity 0.3s, visibility 0.3s;
     }
 
@@ -875,5 +939,13 @@ footer {
     #about p, 
     #about li {
         font-size: 15px;
+    }
+    
+    .product-basket.empty-basket {
+        min-height: 180px;
+        padding: 1rem;
+    }
+    .product-basket.empty-basket p {
+        font-size: 1em;
     }
 }
