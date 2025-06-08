@@ -131,17 +131,17 @@ async function generatePage(){
     }
 
     if (count==0) {
-        // WYCENTRUJ PLSLSLSLSLS
         const mainContainer = document.getElementById("content");
         const productContainer = document.createElement("div");
-        productContainer.setAttribute("class","product-basket");
+        
+        productContainer.setAttribute("class","product-basket empty-basket");
+
         const description = document.createElement("p");
-        description.setAttribute("display","flex");
-        description.setAttribute("align-items","center");
-        description.innerHTML = "Wygląda na to, że twój koszyk jest pusty. Wypełnijmy go! <a href='/index.html'>Kliknij mnie aby wrócić na stronę główną </a>";
+        
+        description.innerHTML = "Wygląda na to, że twój koszyk jest pusty. Wypełnijmy go! <a href='/index.html'>Kliknij mnie, aby wrócić na stronę główną</a>";
         productContainer.appendChild(description);
         mainContainer.appendChild(productContainer);
-    }else{
+    } else {
 
         const productContainer = document.createElement("div");
         productContainer.setAttribute("class","product-basket");
