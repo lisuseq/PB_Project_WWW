@@ -21,7 +21,7 @@
         <header>
             <div class="header-left-section">
                 <div id="logo">
-                    <img src="../images/cat.gif">
+                    <img src="../images/logo.png">
                 </div>
                 <button id="hamburger">
                     <i class="fa-solid fa-bars fa-xl"></i>
@@ -35,9 +35,7 @@
                     <button class="NavBtn">
                         <a href="about.html">O nas</a>
                     </button>
-                    <button class="NavBtn">
-                        Promocje 
-                    </button>
+
                 </div>
             </div>
             <div class="header-right-section">
@@ -46,7 +44,7 @@
                     <button id="lupa" type="button" onclick="activateSearch(document.getElementById('searchPhrase').value)" ><i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
                 </form>
 
-                <button id="koszyk" aria-label="Przejdź do koszyka">
+                <button id="koszyk" onclick="goToBasket()" aria-label="Przejdź do koszyka">
                     <i class="fa-solid fa-cart-shopping fa-2xl"></i>
                 </button>
                 <button onclick="toggleTheme()" id="theme-toggle"></button>

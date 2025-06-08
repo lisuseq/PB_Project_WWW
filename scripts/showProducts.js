@@ -33,6 +33,10 @@ async function addToCart(id) {
     }
 }
 
+async function goToBasket() {
+    window.location.href='/basket.html';
+}
+
 async function generatePage(){
     
 

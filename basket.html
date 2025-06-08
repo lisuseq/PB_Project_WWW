@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" data-theme="light">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +8,20 @@
         <script src="scripts/showBasket.js"></script>
         <script src="scripts/redirectToFiltered.js"></script>
         <script src="scripts/hamburger.js" defer></script>
+        <script src="scripts/darktheme.js" defer></script>
+        <script src="scripts/carousel.js" defer></script>
         <script src="https://kit.fontawesome.com/8747af3647.js" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     </head>
-
-    <body>
+    <!-- Maybe add coupons to the basket -->
+    <!-- Play with session storage/local storage-->
+    <body onload="generatePage()">
         <header>
             <div class="header-left-section">
                 <div id="logo">
-                    <img src="../images/logo.gif">
+                    <img src="../images/logo.png">
                 </div>
                 <button id="hamburger">
                     <i class="fa-solid fa-bars fa-xl"></i>
@@ -32,9 +35,7 @@
                     <button class="NavBtn">
                         <a href="about.html">O nas</a>
                     </button>
-                    <button class="NavBtn">
-                        Promocje 
-                    </button>
+
                 </div>
             </div>
             <div class="header-right-section">
@@ -43,14 +44,43 @@
                     <button id="lupa" type="button" onclick="activateSearch(document.getElementById('searchPhrase').value)" ><i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
                 </form>
 
-                <button id="koszyk" aria-label="Przejdź do koszyka">
+                <button id="koszyk" onclick="goToBasket()" aria-label="Przejdź do koszyka">
                     <i class="fa-solid fa-cart-shopping fa-2xl"></i>
                 </button>
+                <button onclick="toggleTheme()" id="theme-toggle"></button>
             </div>
         </header>
-        <section> 
-            <!--DO ON LOCALSTORAGE-->
+        
+        <section id="gallery"> 
+                <div class="carousel-slides-wrapper">
+                    <div class="carousel-slides">
+                        <div class="carousel-slide">
+                            <a href="produkt1.html">
+                                <img src="../images/1_1.webp" alt="jbl">
+                                <h3>Słuchawki</h3>
+                                <p>Fantastyczne słuchawki JBL z super zniżką 50%</p>
+                            </a>
+                        </div>
+                        <div class="carousel-slide">
+                                <img src="../images/7.webp" alt="jbl">
+                                <h3>HyperX</h3>
+                                <p>Fantastyczne słuchawki HyperX w zestawie z monitorem</p>   
+                        </div>
+                        <div class="carousel-slide">
+                                <img src="../images/1_2.webp" alt="jbl">
+                                <h3>Kotki</h3>
+                                <p>Kotek programista</p>   
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-button prev" aria-label="Poprzedni slajd"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="carousel-button next" aria-label="Następny slajd"><i class="fa-solid fa-chevron-right"></i></button>
+                <div class="carousel-indicators">
+                </div>
+        </section>
+        <section id="content"> <!--Maybe change to container and put genereated data into it in a different div -->
         </section>
         <footer>Pc'townia - Wszelkie prawa zastrzeżone 2025 &copy;</footer>
     </body>
+    
 </html>

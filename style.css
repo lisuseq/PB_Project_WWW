@@ -333,6 +333,16 @@ html[data-theme='dark'] #theme-toggle::after {
     overflow: hidden;
 }
 
+.product-basket {
+    background-color: var(--card-bg);
+    margin-top: 1em;
+    width: 100%;
+    min-height: 150px;
+    display: flex;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
 .imgContainer {
     flex-shrink: 1;
     flex-basis: 300px;

@@ -5,6 +5,10 @@ async function getData(path){
     return parsed;
 }
 
+async function goToBasket() {
+    window.location.href='/basket.html';
+}
+
 async function generatePage(){
  
 const mainContainer = document.getElementById("content");

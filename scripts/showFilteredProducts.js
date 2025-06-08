@@ -5,6 +5,39 @@ async function getData(path){
     return parsed;
 }
 
+//check if works
+async function addToCart(id) {
+    let basket = window.localStorage.getItem("basket");
+    if (basket == null) {
+        window.localStorage.setItem("basket",id+"-"+'1'+";");
+    }else{
+        let array = basket.split(";");
+        console.log("-----"+id+"-------");
+        let newArray="";
+        let appendCheck=0;
+        for (let i = 0; i < array.length-1; i++) {
+            let record = array[i].split("-");
+            if (record[0]==id) {
+                record[1]++;
+                appendCheck=1;
+            }
+            newArray+= record[0]+"-"+record[1]+";";
+
+        }
+        if (appendCheck==0) {
+            newArray += id+"-"+'1'+";";
+        }
+        window.localStorage.setItem("basket",newArray);
+
+
+    }
+}
+
+async function goToBasket() {
+    window.location.href='/basket.html';
+}
+
+
 async function generatePage(){
  
 const mainContainer = document.getElementById("content");
