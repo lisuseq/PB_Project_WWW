@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pc'townia - Dziękujemy!</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="scripts/hamburger.js" defer></script>
+        <script src="scripts/darktheme.js" defer></script>
+        <script src="https://kit.fontawesome.com/8747af3647.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="header-left-section">
+                <div id="logo">
+                    <img src="../images/logo.png">
+                </div>
+            </div>
+            <div class="header-center-section">
+                <div id="NavCenter">
+                    <a href="index.html" class="NavBtn">Strona główna</a>
+                    <a href="about.html" class="NavBtn">O nas</a>
+                    <a href="forms.html" class="NavBtn">Kontakt</a>
+                </div>
+            </div>
+            <div class="header-right-section">
+                <button id="hamburger">
+                    <i class="fa-solid fa-bars fa-xl"></i>
+                </button>
+                <form id="searchbar">
+                    <input type="text" id="searchPhrase" placeholder="Czego szukasz?"> 
+                    <button id="lupa" type="button" onclick="activateSearch(document.getElementById('searchPhrase').value)" ><i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
+                </form>
+
+                <button id="koszyk" onclick="goToBasket()" aria-label="Przejdź do koszyka">
+                    <i class="fa-solid fa-cart-shopping fa-2xl"></i>
+                </button>
+                <button onclick="toggleTheme()" id="theme-toggle"></button>
+            </div>
+        </header>
+        
+        <section id="content">
+            <div class="thank-you-container">
+                <div class="icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h1>Dziękujemy za Twoją wiadomość!</h1>
+                <p>Otrzymaliśmy Twoje zapytanie i skontaktujemy się z Tobą najszybciej, jak to możliwe.</p>
+                <a href="index.html" class="back-to-home-btn">Powrót na stronę główną</a>
+            </div>
+        </section>
+
+        <footer>Pc'townia - Wszelkie prawa zastrzeżone 2025 &copy;</footer>
+    </body>
+</html>
