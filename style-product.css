@@ -308,14 +308,10 @@ html[data-theme='dark'] #theme-toggle::after {
     font-weight: bold; 
 }
 
+/* --- POCZĄTEK ZMIAN --- */
+/* Poprawione selektory, aby odnosiły się bezpośrednio do przycisków z ID */
 #buy_now, 
-#add_to_cart { 
-    width: auto; 
-}
-
-#buy_now button, 
-#add_to_cart button {
-    width: 100%;
+#add_to_cart {
     min-width: 200px;
     width: 210px;
     padding: 12px 25px;
@@ -328,10 +324,12 @@ html[data-theme='dark'] #theme-toggle::after {
     cursor: pointer;
 }
 
-#buy_now button:hover, 
-#add_to_cart button:hover { 
+#buy_now:hover, 
+#add_to_cart:hover { 
     background-color: var(--accent-secondary); 
 }
+/* --- KONIEC ZMIAN --- */
+
 
 .carousel-btn {
     display: none;
@@ -469,17 +467,15 @@ footer {
         display: block; 
     }
     
+    /* --- POCZĄTEK ZMIAN --- */
+    /* Poprawione selektory dla widoku responsywnego */
     #buy_now, 
     #add_to_cart { 
         width: 90%; 
         max-width: 300px; 
+        padding: 12px;
     }
-    
-    #buy_now button, 
-    #add_to_cart button { 
-        width: 100%; 
-        padding: 12px; 
-    }
+    /* --- KONIEC ZMIAN --- */
 }
 
 @media (max-width: 765px) and (min-width: 481px) {
