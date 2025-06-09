@@ -1,41 +1,56 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" data-theme="light">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pc'townia - Strona główna</title>
+        <title>Pc'townia - Wyszukiwanie</title>
+
+        <script>
+        (function() {
+            try {
+            var theme = localStorage.getItem('theme');
+            if (theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+            }
+            } catch (e){}
+        })();
+        </script>
+
         <link rel="stylesheet" href="style.css">
-        <script src="scripts/showFilteredProducts.js"></script>
-        <script src="scripts/redirectToFiltered.js"></script>
-        <script src="scripts/hamburger.js" defer></script>
-        <script src="https://kit.fontawesome.com/8747af3647.js" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+        
+        <link rel="icon" href="images/logosml.png" type="image/x-icon">
+
+        <script src="scripts/showProducts.js" defer></script>
+        <script src="scripts/redirectToFiltered.js" defer></script>
+        <script src="scripts/hamburger.js" defer></script>
+        <script src="scripts/darktheme.js" defer></script>
+        <script src="scripts/carousel.js" defer></script>
+        <script src="https://kit.fontawesome.com/8747af3647.js" crossorigin="anonymous"></script>
     </head>
-    <!-- Maybe add coupons to the basket -->
-    <!-- Play with session storage/local storage-->
     <body onload="generatePage()">
         <header>
             <div class="header-left-section">
                 <div id="logo">
-                    <img src="../images/logo.png">
+                    <img src="../images/logo.png" alt="logo">
                 </div>
-                <button id="hamburger">
-                    <i class="fa-solid fa-bars fa-xl"></i>
-                </button>
+                <div id="logosmall">
+                    <img src="../images/logosml.png" alt="small_logo">
+                </div>
             </div>
             <div class="header-center-section">
                 <div id="NavCenter">
-                    <button class="NavBtn">
-                        <a href="index.html">Strona główna</a>
-                    </button>
-                    <button class="NavBtn">
-                        <a href="about.html">O nas</a>
-                    </button>
+                    <a href="index.html" class="NavBtn">Strona główna</a>
+                    <a href="about.html" class="NavBtn">O nas</a>
+                    <a href="forms.html" class="NavBtn">Kontakt</a>
                 </div>
             </div>
             <div class="header-right-section">
+                <button id="hamburger">
+                    <i class="fa-solid fa-bars fa-xl"></i>
+                </button>
                 <form id="searchbar">
                     <input type="text" id="searchPhrase" placeholder="Czego szukasz?"> 
                     <button id="lupa" type="button" onclick="activateSearch(document.getElementById('searchPhrase').value)" ><i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
@@ -44,6 +59,7 @@
                 <button id="koszyk" onclick="goToBasket()" aria-label="Przejdź do koszyka">
                     <i class="fa-solid fa-cart-shopping fa-2xl"></i>
                 </button>
+                <button onclick="toggleTheme()" id="theme-toggle"></button>
             </div>
         </header>
         
@@ -51,19 +67,19 @@
                 <div class="carousel-slides-wrapper">
                     <div class="carousel-slides">
                         <div class="carousel-slide">
-                                <img src="../images/JBL TUNE 720Bt.webp" alt="jbl">
-                                <h3>Słuchawki</h3>
-                            <p>Fantastyczne słuchawki JBL z super zniżką 50%</p>   
+                                <img src="../images/1_1.webp" alt="jbl">
+                                <h3>Słuchawki JBL Tune 720BT</h3>
+                            <p>Fantastyczne słuchawki JBL z niesamowitym brzmieniem</p>   
                         </div>
                         <div class="carousel-slide">
-                                <img src="../images/HyperX Cloud Alpha.webp" alt="jbl">
-                                <h3>HyperX</h3>
-                            <p>Fantastyczne słuchawki HyperX w zestawie z monitorem</p>   
+                                <img src="../images/slider_2.webp" alt="slider_2">
+                                <h3>NOWOŚĆ!</h3>
+                            <p>Mop elektryczny Philips OneUp</p>   
                         </div>
                         <div class="carousel-slide">
-                                <img src="../images/logo.gif" alt="jbl">
-                                <h3>Kotki</h3>
-                            <p>Kotek programista</p>   
+                                <img src="../images/slider_3.webp" alt="slider_3">
+                                <h3>Nintendo Switch 2</h3>
+                            <p>Już jest w Polsce</p>   
                         </div>
                         </div>
                 </div>
@@ -71,8 +87,6 @@
                 <button class="carousel-button next" aria-label="Następny slajd"><i class="fa-solid fa-chevron-right"></i></button>
                 <div class="carousel-indicators">
                 </div>
-        </section>
-        <section id="gallery"> <!-- Add rotating gallery -->
         </section>
         <section id="content"> <!--Maybe change to container and put genereated data into it in a different div -->
         </section>

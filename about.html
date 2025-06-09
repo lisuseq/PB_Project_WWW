@@ -3,39 +3,54 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pc'townia - Strona główna</title>
+        <title>Pc'townia - O nas</title>
+
+        <script>
+        (function() {
+            try {
+            var theme = localStorage.getItem('theme');
+            if (theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+            }
+            } catch (e){}
+        })();
+        </script>
+
         <link rel="stylesheet" href="style.css">
-        <script src="scripts/showProducts.js"></script>
-        <script src="scripts/redirectToFiltered.js"></script>
-        <script src="scripts/hamburger.js" defer></script>
-        <script src="scripts/darktheme.js" defer></script>
-        <script src="https://kit.fontawesome.com/8747af3647.js" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
-    </head>
+        
+        <link rel="icon" href="images/logosml.png" type="image/x-icon">
 
+        <script src="scripts/showProducts.js" defer></script>
+        <script src="scripts/redirectToFiltered.js" defer></script>
+        <script src="scripts/hamburger.js" defer></script>
+        <script src="scripts/darktheme.js" defer></script>
+        <script src="scripts/carousel.js" defer></script>
+        <script src="https://kit.fontawesome.com/8747af3647.js" crossorigin="anonymous"></script>
+    </head>
     <body>
         <header>
             <div class="header-left-section">
                 <div id="logo">
-                    <img src="../images/logo.png">
+                    <img src="../images/logo.png" alt="logo">
                 </div>
-                <button id="hamburger">
-                    <i class="fa-solid fa-bars fa-xl"></i>
-                </button>
+                <div id="logosmall">
+                    <img src="../images/logosml.png" alt="small_logo">
+                </div>
             </div>
             <div class="header-center-section">
                 <div id="NavCenter">
-                    <button class="NavBtn">
-                        <a href="index.html">Strona główna</a>
-                    </button>
-                    <button class="NavBtn">
-                        <a href="about.html">O nas</a>
-                    </button>
+                    <a href="index.html" class="NavBtn">Strona główna</a>
+                    <a href="about.html" class="NavBtn">O nas</a>
+                    <a href="forms.html" class="NavBtn">Kontakt</a>
                 </div>
             </div>
             <div class="header-right-section">
+                <button id="hamburger">
+                    <i class="fa-solid fa-bars fa-xl"></i>
+                </button>
                 <form id="searchbar">
                     <input type="text" id="searchPhrase" placeholder="Czego szukasz?"> 
                     <button id="lupa" type="button" onclick="activateSearch(document.getElementById('searchPhrase').value)" ><i class="fa-solid fa-magnifying-glass fa-xl"></i></button>

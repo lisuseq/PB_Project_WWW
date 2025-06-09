@@ -1,177 +1,153 @@
-const dataPath="../data.json";
-async function getData(path){
-    let raw = await fetch(path);
-    let parsed = await raw.json();
+const dataPath = "../data.json";
+
+async function getData(path) {
+    const raw = await fetch(path);
+    const parsed = await raw.json();
     return parsed;
 }
 
-async function deleteObj(ID,itemPrice) {
+// Funkcja została uproszczona dla większej stabilności
+async function deleteObj(ID) {
     let basket = window.localStorage.getItem("basket");
+    if (!basket) return; // Zabezpieczenie na wypadek braku koszyka
+
     let array = basket.split(";");
-    console.log("-----"+ID+"-------");
-    let newArray="";
-    for (let i = 0; i < array.length-1; i++) {
+    let newArrayString = "";
+    let itemFoundAndRemoved = false;
+
+    for (let i = 0; i < array.length; i++) {
+        if (!array[i]) continue; // Pomiń puste rekordy
         let record = array[i].split("-");
-        if (record[0]==ID) {
-            record[1]--;
-            const priceDiv = document.getElementById("price"+ID);
-            const sumDiv = document.getElementById("sum");
+        let currentID = record[0];
+        let currentAmount = parseInt(record[1]);
 
-            //price change
-            let priceContent = priceDiv.innerHTML;
-            let arrCont = priceContent.split(":");
-            let changedCount = --arrCont[2];
-            priceDiv.innerHTML = arrCont[0]+" :"+arrCont[1]+" :"+changedCount;
-
-            //sum change
-            let sumContent = sumDiv.innerHTML;
-            let arrSum = sumContent.split(":");
-            let changedSum = arrSum[1]-itemPrice;
-            sumDiv.innerHTML = arrSum[0]+" :"+changedSum.toFixed(2);
+        if (currentID === ID && !itemFoundAndRemoved) {
+            currentAmount--; // Zmniejsz ilość tylko raz
+            itemFoundAndRemoved = true;
         }
-        if (record[1]>0) {
-            newArray+= record[0]+"-"+record[1]+";";
-        }else{
-            window.location.href='/basket.html';
-        }   
+
+        if (currentAmount > 0) {
+            newArrayString += currentID + "-" + currentAmount + ";";
+        }
     }
 
-    window.localStorage.setItem("basket",newArray);
-
+    window.localStorage.setItem("basket", newArrayString);
+    // Odświeżenie strony jest najprostszym i najbardziej niezawodnym sposobem
+    // na zaktualizowanie widoku koszyka po zmianach.
+    window.location.reload();
 }
 
 async function clearCart() {
     window.localStorage.removeItem("basket");
-    window.location.href='/index.html';
+    // Przekierowanie na stronę główną po złożeniu zamówienia
+    window.location.href = '/index.html'; 
 }
 
-async function generatePage(){
+async function generatePage() {
     const mainContainer = document.getElementById("content");
-    const array = await getData(dataPath);
-    console.log("Wykonanie skryptu");
-    console.log(array);
+    const productsData = await getData(dataPath);
     let basket = window.localStorage.getItem("basket");
-    let queryArr;
-    let count = 0;
-    let payment = 0;
+    let totalPayment = 0;
+    let itemCount = 0;
 
-    if (basket != null) {
-        queryArr = basket.split(";");
+    if (basket) {
+        const queryArr = basket.split(";");
         for (let i = 0; i < queryArr.length; i++) {
+            if (!queryArr[i]) continue; // Pomiń puste rekordy
+
             const details = queryArr[i].split("-");
             const ID = details[0];
-            const amount = details[1];
-            console.log("Iteracja nr: " +i+ "Element nr: "+ID);
-            if (!ID) {
-                console.log("Pusty rekord");
-                continue;
-            }
-            let obj = array[ID];
-            payment += amount*obj.price;
-            console.log("Ktaz:"+amount+" ; "+obj.price+" ; "+payment);
-            count++;
-            const productContainer = document.createElement("div"); //float-left split to 2 divs
+            const amount = parseInt(details[1]);
+            
+            let obj = productsData[ID];
+            if (!obj) continue; // Pomiń, jeśli produkt o danym ID nie istnieje
 
-            productContainer.addEventListener("click",()=>{window.location.href='/product.html?id='+i} );
+            totalPayment += amount * obj.price;
+            itemCount++;
 
+            // --- Tworzenie elementu produktu w koszyku ---
+            const productContainer = document.createElement("div");
+            productContainer.setAttribute("id", ID);
+            productContainer.setAttribute("class", "product-basket");
+            productContainer.addEventListener("click", () => { window.location.href = '/product.html?id=' + ID });
 
-            productContainer.setAttribute("id",ID);
-            productContainer.setAttribute("class","product-basket"); // IMPORTANT CHANGE IN CSS
-
-            //doesnt scale!!!!!
             const imgContainer = document.createElement("div");
+            imgContainer.setAttribute("class", "imgContainer");
             const img = document.createElement("img");
-            let path = (obj.images && obj.images.length) ? obj.images[0] : "../images/" + obj.id + ".webp";
-            img.setAttribute("src", path); //path
-            img.setAttribute("width","225px"); // 225
-            img.setAttribute("height","150px"); //  250
-            img.setAttribute("alt","obrazek przedstawiający "+obj.name);
+            let path = (obj.images && obj.images.length) ? obj.images[0] : `../images/${obj.id}.webp`;
+            img.setAttribute("src", path);
+            img.setAttribute("alt", "obrazek przedstawiający " + obj.name);
             imgContainer.appendChild(img);
             productContainer.appendChild(imgContainer);
-            imgContainer.setAttribute("class","imgContainer");
-
 
             const dataContainer = document.createElement("div");
+            dataContainer.setAttribute("class", "dataContainer");
+
             const dataLeft = document.createElement("div");
+            dataLeft.setAttribute("class", "dataLeft");
             const title = document.createElement("h1");
             title.innerHTML = obj.name;
-            dataLeft.appendChild(title);
-            dataContainer.setAttribute("class","dataContainer");
-
             const description = document.createElement("p");
             description.innerHTML = obj.description;
+            dataLeft.appendChild(title);
             dataLeft.appendChild(description);
-            dataContainer.appendChild(dataLeft);
-
 
             const dataRight = document.createElement("div");
+            dataRight.setAttribute("class", "dataRight");
             const price = document.createElement("h3");
-            price.setAttribute("id","price"+ID);
-            price.innerHTML = "Cena : " + obj.price +" zł, szt :"+amount;
+            price.setAttribute("id", "price" + ID);
+            price.innerHTML = `Cena : ${obj.price} zł, szt : ${amount}`;
             dataRight.appendChild(price);
 
+            const deleteButton = document.createElement("button");
+            deleteButton.innerHTML = "Usuń z koszyka";
+            deleteButton.setAttribute("class", "btn btn-delete");
+            deleteButton.addEventListener("click", (e) => {
+                e.stopPropagation(); // Zapobiega przejściu na stronę produktu po kliknięciu przycisku
+                deleteObj(ID);
+            });
+            dataRight.appendChild(deleteButton);
 
-            const button = document.createElement("button");
-            button.innerHTML = "Usuń z koszyka";
-            button.setAttribute("id","add_to_cart");
-            //button.addEventListener("click",addToCart(obj.id)); //NEW
-            button.addEventListener("click",((e)=>{e.stopPropagation();deleteObj(ID,obj.price)}));
-            dataRight.appendChild(button); //store id in cookies/session
-
-            dataRight.setAttribute("class","dataRight");
-            dataLeft.setAttribute("class","dataLeft");
+            dataContainer.appendChild(dataLeft);
             dataContainer.appendChild(dataRight);
             productContainer.appendChild(dataContainer);
-
             mainContainer.appendChild(productContainer);
-
         }
-
-        console.log(count);
     }
 
-    if (count==0) {
-        // WYCENTRUJ PLSLSLSLSLS
-        const mainContainer = document.getElementById("content");
-        const productContainer = document.createElement("div");
-        productContainer.setAttribute("class","product-basket");
-        const description = document.createElement("p");
-        description.setAttribute("display","flex");
-        description.setAttribute("align-items","center");
-        description.innerHTML = "Wygląda na to, że twój koszyk jest pusty. Wypełnijmy go! <a href='/index.html'>Kliknij mnie aby wrócić na stronę główną </a>";
-        productContainer.appendChild(description);
-        mainContainer.appendChild(productContainer);
-    }else{
+    if (itemCount === 0) {
+        // --- Wyświetlanie informacji o pustym koszyku ---
+        const emptyContainer = document.createElement("div");
+        emptyContainer.setAttribute("class", "product-basket empty-basket");
+        const emptyDescription = document.createElement("p");
+        emptyDescription.innerHTML = "Wygląda na to, że twój koszyk jest pusty. Wypełnijmy go! <a href='/index.html'>Kliknij tutaj, aby wrócić na stronę główną</a>";
+        emptyContainer.appendChild(emptyDescription);
+        mainContainer.appendChild(emptyContainer);
+    } else {
+        // --- Tworzenie podsumowania koszyka ---
+        const summaryContainer = document.createElement("div");
+        summaryContainer.setAttribute("class", "basket-summary");
 
-        const productContainer = document.createElement("div");
-        productContainer.setAttribute("class","product-basket");
+        const textContainer = document.createElement("div");
+        textContainer.setAttribute("class", "dataContainer");
 
-        //doesnt scale!!!!!
+        const summaryTitleElement = document.createElement("h1");
+        summaryTitleElement.textContent = "Podsumowanie koszyka:";
 
-        const dataContainer = document.createElement("div");
-        const dataLeft = document.createElement("div");
-        const title = document.createElement("h1");
-        title.innerHTML = "Podsumowanie koszyka:";
-        dataLeft.appendChild(title);
-        dataContainer.setAttribute("class","dataContainer");
+        const summaryPriceElement = document.createElement("h1");
+        summaryPriceElement.setAttribute("id", "sum");
+        summaryPriceElement.textContent = `Do zapłaty: ${totalPayment.toFixed(2)} zł`;
 
-        const dataRight = document.createElement("div");
-        const price = document.createElement("h1");
-        price.setAttribute("id","sum");
-        price.innerHTML = "Do zapłaty  :"+payment;
-        dataRight.appendChild(price);
+        textContainer.appendChild(summaryTitleElement);
+        textContainer.appendChild(summaryPriceElement);
 
-        dataRight.setAttribute("class","dataRight");
-        dataLeft.setAttribute("class","dataLeft");
-        dataContainer.appendChild(dataRight);
-        productContainer.appendChild(dataContainer);
-
-        const button = document.createElement("button");
-        button.innerHTML = "Zamów";
-        button.setAttribute("id","add_to_cart");
-        button.addEventListener("click",clearCart);
-        dataRight.appendChild(button); //store id in cookies/session
-
-        mainContainer.appendChild(productContainer);
+        const orderButton = document.createElement("button");
+        orderButton.textContent = "Zamów";
+        orderButton.setAttribute("class", "btn btn-primary");
+        orderButton.addEventListener("click", clearCart);
+        
+        summaryContainer.appendChild(textContainer);
+        summaryContainer.appendChild(orderButton);
+        mainContainer.appendChild(summaryContainer);
     }
 }

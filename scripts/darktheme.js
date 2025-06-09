@@ -5,8 +5,3 @@ function toggleTheme() {
   html.setAttribute("data-theme", next);
   localStorage.setItem("theme", next);
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  const saved = localStorage.getItem("theme") || "light";
-  document.documentElement.setAttribute("data-theme", saved);
-});

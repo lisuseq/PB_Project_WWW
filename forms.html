@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pc'townia - Produkt</title>
+        <title>Pc'townia - Kontakt</title>
 
         <script>
         (function() {
@@ -30,7 +30,7 @@
         <script src="scripts/carousel.js" defer></script>
         <script src="https://kit.fontawesome.com/8747af3647.js" crossorigin="anonymous"></script>
     </head>
-    <body onload="generatePage()">
+    <body>
         <header>
             <div class="header-left-section">
                 <div id="logo">
@@ -63,25 +63,35 @@
             </div>
         </header>
         <section id="content">
-            <div id="mainContainer">
-                <div id="product" class="mainContainerSection">
-                    <div id="leftProduct">
-                        <div id="productHeader">Produkt N/A</div>
-                        <div id="box"></div>
+            <div class="contact-form-container">
+                <h2>Skontaktuj się z nami</h2>
+                <p>Masz pytania? Wypełnij formularz, a my odpowiemy najszybciej jak to możliwe.</p>
+                
+                <form id="contactForm" action="https://formsubmit.co/kuba.matusiewicz65@gmail.com" method="POST">
+                
+                    <input type="hidden" name="_subject" value="Nowa wiadomość ze strony Pc'townia!">
+                    <input type="hidden" name="_next" value="http://127.0.0.1:5500/thanks.html"> <input type="hidden" name="_captcha" value="false"> <div class="form-group">
+                        <label for="imie">Twoje imię:</label>
+                        <input type="text" id="imie" name="imie" placeholder="np. Jan" required>
                     </div>
-                    <div id="rightProduct">
-                        <div id="price">Cena: N/A</div> <!--Add discount price later -->
-                        <div id="buy_now"><button type="button">Kup Teraz</button></div>
-                        <div id="add_to_cart"><button type="button">Dodaj do Koszyka</button></div>
+                    <div class="form-group">
+                        <label for="email">Twój e-mail:</label>
+                        <input type="email" id="email" name="email" placeholder="np. jan.kowalski@example.com" required>
                     </div>
-                </div>
-                <div id="description" class="mainContainerSection">
-                    <h2>Opis produktu:</h2>
-                    <p id="descrP">N/A</p>
-                </div> 
-                <div id="detailsDiv" class="mainContainerSection"></div> <!--Generate small table -->
+                    <div class="form-group">
+                        <label for="temat">Temat wiadomości:</label>
+                        <input type="text" id="temat" name="temat" placeholder="np. Pytanie o produkt" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="wiadomosc">Treść wiadomości:</label>
+                        <textarea id="wiadomosc" name="wiadomosc" rows="6" placeholder="Wpisz tutaj swoją wiadomość..." required></textarea>
+                    </div>
+                    <div id="form-status"></div>
+                    <button type="submit" class="submit-btn">Wyślij wiadomość</button>
+                </form>
             </div>
         </section>
         <footer>Pc'townia - Wszelkie prawa zastrzeżone 2025 &copy;</footer>
     </body>
+    
 </html>
