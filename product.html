@@ -4,32 +4,28 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pc'townia - Produkt</title>
-
         <script>
-        (function() {
-            try {
-            var theme = localStorage.getItem('theme');
-            if (theme) {
-                document.documentElement.setAttribute('data-theme', theme);
-            }
-            } catch (e){}
-        })();
+            (function() {
+                try {
+                var theme = localStorage.getItem('theme');
+                if (theme) {
+                    document.documentElement.setAttribute('data-theme', theme);
+                }
+                } catch (e){}
+            })();
         </script>
-
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style-product.css">
+        <script src="scripts/getProduct.js"></script>
+        <script src="scripts/showProducts.js"></script>
+        <script src="scripts/redirectToFiltered.js"></script>
+        <script src="scripts/hamburger.js"></script>
+        <script src="scripts/darktheme.js"></script>
+        <script src="https://kit.fontawesome.com/8747af3647.js" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
-        
         <link rel="icon" href="images/logosml.png" type="image/x-icon">
-
-        <script src="scripts/showProducts.js" defer></script>
-        <script src="scripts/redirectToFiltered.js" defer></script>
-        <script src="scripts/hamburger.js" defer></script>
-        <script src="scripts/darktheme.js" defer></script>
-        <script src="scripts/carousel.js" defer></script>
-        <script src="https://kit.fontawesome.com/8747af3647.js" crossorigin="anonymous"></script>
-    </head>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    </head> 
     <body onload="generatePage()">
         <header>
             <div class="header-left-section">
@@ -70,9 +66,8 @@
                         <div id="box"></div>
                     </div>
                     <div id="rightProduct">
-                        <div id="price">Cena: N/A</div> <!--Add discount price later -->
-                        <div id="buy_now"><button type="button">Kup Teraz</button></div>
-                        <div id="add_to_cart"><button type="button">Dodaj do Koszyka</button></div>
+                        <div id="price">Cena: N/A</div> <button type="button" id="buy_now">Kup Teraz</button>
+                        <button type="button" id="add_to_cart">Dodaj do Koszyka</button>
                     </div>
                 </div>
                 <div id="description" class="mainContainerSection">
