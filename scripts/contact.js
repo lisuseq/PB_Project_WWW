@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (form) {
         form.addEventListener('submit', function(event) {
-            // Czyszczenie poprzednich komunikatów
             statusDiv.innerHTML = '';
             statusDiv.className = '';
 
@@ -15,18 +14,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const wiadomosc = document.getElementById('wiadomosc').value.trim();
 
             if (!imie || !email || !temat || !wiadomosc) {
-                event.preventDefault(); // ZATRZYMUJEMY WYSYŁKĘ
+                event.preventDefault();
                 showStatus('Wszystkie pola są wymagane!', 'error');
                 return;
             }
 
             if (!validateEmail(email)) {
-                event.preventDefault(); // ZATRZYMUJEMY WYSYŁKĘ
+                event.preventDefault();
                 showStatus('Proszę podać poprawny adres e-mail.', 'error');
                 return;
             }
 
-            // Jeśli walidacja przejdzie pomyślnie, formularz zostanie wysłany normalnie
             showStatus('Przetwarzanie...', 'success');
         });
     }
