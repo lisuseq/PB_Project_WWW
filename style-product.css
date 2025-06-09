@@ -29,11 +29,11 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: lato;
-    transition:
-        background-color 0.4s cubic-bezier(0.1, -0.6, 0.2, 0),
-        color 0.4s cubic-bezier(0.1, -0.6, 0.2, 0),
-        box-shadow 0.4s cubic-bezier(0.1, -0.6, 0.2, 0),
-        border-color 0.4s cubic-bezier(0.1, -0.6, 0.2, 0);
+    transition: 
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
 }
 
 header {
@@ -100,11 +100,7 @@ header {
     margin: 5px;
     white-space: nowrap;
     color: var(--text-color);
-}
-
-.NavBtn a {
     text-decoration: none;
-    color: inherit;
 }
 
 .NavBtn:hover {
@@ -120,7 +116,7 @@ header {
 
 .header-right-section {
     justify-content: flex-end;
-    gap: 10px;
+    gap: 5px;
 }
 
 #searchbar {
@@ -152,9 +148,17 @@ header {
     width: 35px;
 }
 
+#lupa i {
+    color: var(--text-color);
+}
+
 #lupa:hover {
     background-color: var(--accent-secondary);
     transition: 0.25s;
+}
+
+#lupa:active {
+    background-color: var(--accent-color);
 }
 
 #koszyk {
@@ -165,10 +169,25 @@ header {
     width: 70px;
     padding: 10px;
     cursor: pointer;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+#koszyk i {
+    color: var(--text-color);
 }
 
 #koszyk:hover {
     background-color: var(--border-color);
+    color: var(--text-color);
+    transition: 0.25s;
+}
+
+#koszyk:active {
+    background-color: var(--promo-color);
+    color: var(--text-color);
+    transition: 0.25s;
 }
 
 #theme-toggle {
@@ -207,9 +226,19 @@ html[data-theme='dark'] #theme-toggle {
 
 html[data-theme='dark'] #theme-toggle::after {
     transform: translateX(30px);
-    background-color: #dad9d6;
+    background-color: #dad9d6; 
     box-shadow: 0 0 8px rgba(218, 217, 214, 0.7);
     clip-path: circle(50% at 75% 50%);
+}
+
+#logosmall {
+    display: none;
+}
+
+#logosmall img {
+    height: 40px;
+    width: auto;
+    display: block;
 }
 
 #content {
@@ -288,6 +317,7 @@ html[data-theme='dark'] #theme-toggle::after {
 #add_to_cart button {
     width: 100%;
     min-width: 200px;
+    width: 210px;
     padding: 12px 25px;
     font-size: 16px;
     color: white;
@@ -359,45 +389,71 @@ html[data-theme='dark'] #theme-toggle::after {
 
 footer {
     width: 100%;
-    padding: 20px;
+    padding-top: 20px;
     text-align: center;
+    height: 40px;
     background-color: var(--card-bg);
+    display: flex;
+    justify-content: center;
     color: var(--text-color);
-    border-top: 1px solid var(--border-color);
+    flex-shrink: 0;
 }
 
 @media (max-width: 1024px) {
-    .header-left-section { 
-        flex: 0.5; 
+    .header-left-section {
+        flex: 0.5;
+    }
+
+    #NavCenter {
+        flex-wrap: wrap;
+    }
+
+    .NavBtn {
+        font-size: 22px;
+        padding: 8px 12px;
+        margin: 5px;
+    }
+
+    #koszyk {
+        border-radius: 25%;
     }
     
-    #NavCenter { 
-        flex-wrap: wrap; 
+    #logo {
+        display: none;
     }
-    
-    .NavBtn { 
-        font-size: 22px; 
-        padding: 8px 12px; 
+
+    #logosmall {
+        display: block;
     }
-    
-    #koszyk { 
-        border-radius: 25%; 
+}
+
+@media (max-width: 900px) and (min-width: 768px){
+    .header-center-section,
+    .header-right-section{
+        display: flex;
     }
 }
 
 @media (max-width: 768px) {
-    header { 
-        height: 70px; 
+    header {
+        height: 100px;
     }
-    
-    .NavBtn { 
-        font-size: 20px; 
+    .header-left-section{
+        margin-bottom: 0.5em;
     }
-    
-    #koszyk { 
-        height: 67px; 
+    #logo{
+        margin-left: 0px;
+    }
+    .NavBtn {
+        font-size: 20px;
+        padding: 0.4em 0.8em;
     }
 
+    #koszyk {
+        height: 50px;
+        width: 50px;
+    }
+    
     #product { 
         flex-direction: column; 
         align-items: center; 
@@ -427,18 +483,21 @@ footer {
 }
 
 @media (max-width: 765px) and (min-width: 481px) {
-    #hamburger { 
-        display: block; 
-        font-size: 24px; 
-        margin-left: 13px; 
+    #hamburger {
+        display: block;
+        font-size: 24px;
+        margin-left: 13px;
+        background: none;
+        border: none;
+        cursor: pointer;
     }
-    
+
     #NavCenter {
         display: flex;
         flex-direction: column;
         align-items: stretch;
         position: absolute;
-        top: 70px;
+        top: 130px;
         left: 0;
         width: 100%;
         z-index: 1000;
@@ -449,14 +508,14 @@ footer {
         overflow: hidden;
         opacity: 0;
         pointer-events: none;
-        transition: 
-            max-height 0.6s, 
-            padding 0.6s, 
-            box-shadow 0.6s, 
-            border-top 0.6s, 
+        transition:
+            max-height 0.6s,
+            padding 0.6s,
+            box-shadow 0.6s,
+            border-top 0.6s,
             opacity 0.6s;
     }
-    
+
     #NavCenter.nav-active {
         max-height: 400px;
         padding: 10px 0;
@@ -465,27 +524,61 @@ footer {
         opacity: 1;
         pointer-events: auto;
     }
-    
-    #NavCenter:not(.nav-active) .NavBtn { 
-        display: none; 
+
+    #NavCenter:not(.nav-active) .NavBtn {
+        display: none;
     }
-    
-    #NavCenter.nav-active .NavBtn { 
-        opacity: 1; 
-        visibility: visible; 
+
+    #NavCenter.nav-active .NavBtn {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.3s, visibility 0.3s;
     }
-    
-    #NavCenter .NavBtn { 
-        text-align: center; 
-        margin: 8px 15px; 
-        padding: 12px 10px; 
-        font-size: 17px; 
-        opacity: 0; 
-        visibility: hidden; 
+
+    #NavCenter .NavBtn {
+        text-align: center;
+        margin: 8px 15px;
+        padding: 12px 10px;
+        font-size: 17px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
     }
-    
-    #lupa { 
-        display: none; 
+
+    #NavCenter .NavBtn:last-child {
+        border-bottom: none;
+    }
+
+    #searchbar {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        flex-shrink: 1;
+        height: 100%;
+        width: 100%;
+    }
+
+    #searchbar input[type="text"] {
+        width: 100%;
+        padding: 8px 10px;
+        font-size: 15px;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+
+    #searchbar input[type="text"]:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
+    }
+
+    #lupa {
+        display: none;
+    }
+
+    #koszyk {
+        height: 50px;
+        width: 50px;
     }
 }
 
@@ -574,8 +667,8 @@ footer {
     }
     
     #koszyk {
-        width: 45px;
-        height: 45px;
+        width: 40px;
+        height: 40px;
         padding: 0;
         display: flex;
         align-items: center;
@@ -598,5 +691,11 @@ footer {
 
     html[data-theme='dark'] #theme-toggle::after {
         transform: translateX(25px);
+    }
+    
+    footer {
+        padding: 15px;
+        height: auto;
+        font-size: 14px;
     }
 }
