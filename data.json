@@ -8,7 +8,14 @@
         "images/1_2.webp",
         "images/1_3.webp"
     ]},
-    {"id":"1","name":"Gamingowa myszka razer","description":"myszka razer","price":"70.25"},
+    {"id":"1","name":"Mysz dla graczy Razer Basilisk V3","description":"Twórz, steruj i graj we własnym stylu dzięki nowej, modelowej ergonomicznej myszy gamingowej Razer Basilisk V3, która umożliwia personalizację z myślą o większej skuteczności.",
+    "price":"289.99",
+    "details":"Typ myszy:Dla graczy;Kolor:Czarny;Rozdzielczość:26000 dpi;Profil:Praworęczny;Ilość przycisków:11;Łączność:Przewodowa",
+    "images":[
+        "images/2_1.webp",
+        "images/2_2.webp",
+        "images/2_3.webp"
+    ]},
     {"id":"2","name":"Głośniki biurowe logitech","description":"glosniki logitech","price":"110.00"},
     {"id":"3","name":"Pasta termoprzewodząca 10g","description":"pasta thermal grizzly","price":"29.99"},
     {"id":"4","name":"Płyn do czyszczenia monitorów LCD","description":"cleaner silver monkey 100ml","price":"25.99"},
@@ -16,5 +23,12 @@
     {"id":"6","name":"Gamignowe Słuchawki przewodowe HyperX Cloud Alpha","description":"sluchawki gamingowe","price":"30.95"},
     {"id":"7","name":"HyperX Cloud Alpha","description":"sluchawki gamingowe","price":"30.95"},
     {"id":"7","name":"HyperX Cloud Alpha","description":"sluchawki gamingowe","price":"30.95"},
-    {"id":"7","name":"HyperX Cloud Alpha","description":"sluchawki gamingowe","price":"30.95"}
+    {"id":"8","name":"HP Smart Tank 720 Kolor Duplex WiFi BLE","description":"Wydajne urządzenie wielofunkcyjne z opcją automatycznego druku dwustronnego",
+    "price":"30.95",
+    "details":"Kolor:Czarny;WIFI:Tak;Maksymalna Gramatura:250g/m^2;Rozdzielczość maksymalna:4800 x 1200 dpi;Skaner:Tak;Funkcja faxu:Nie",
+    "images":[
+        "images/8_1.webp",
+        "images/8_2.webp",
+        "images/8_3.webp"
+    ]}
 ]
