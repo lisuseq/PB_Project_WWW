@@ -467,15 +467,12 @@ footer {
         display: block; 
     }
     
-    /* --- POCZĄTEK ZMIAN --- */
-    /* Poprawione selektory dla widoku responsywnego */
     #buy_now, 
     #add_to_cart { 
         width: 90%; 
         max-width: 300px; 
         padding: 12px;
     }
-    /* --- KONIEC ZMIAN --- */
 }
 
 @media (max-width: 765px) and (min-width: 481px) {
