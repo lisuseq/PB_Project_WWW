@@ -92,7 +92,7 @@ async function generatePage() {
             const button2 = document.createElement("button");
             button2.innerHTML = "Kup Teraz";
             button2.setAttribute("id", "buy_now");
-            button2.addEventListener("click", (e) => { e.stopPropagation() });
+            button2.addEventListener("click", (e) => { e.stopPropagation(); addToCart(obj.id); goToBasket(); });
             dataRight.appendChild(button2);
             
             dataContainer.appendChild(dataRight);
