@@ -18,6 +18,7 @@
     --promo-color: #C845E0;
 }
 
+/* Base styles */
 html, body {
     overflow-x: hidden;
     background-color: var(--bg-color);
@@ -36,6 +37,7 @@ html, body {
         border-color 0.3s ease;
 }
 
+/* Header styles */
 header {
     width: 100%;
     padding: 0.5% 2%;
@@ -56,6 +58,17 @@ header {
     justify-content: flex-start;
 }
 
+.header-center-section {
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.header-right-section {
+    justify-content: flex-end;
+    gap: 5px;
+}
+
 #logo {
     margin-left: 20px;
     flex-shrink: 0;
@@ -63,6 +76,16 @@ header {
 
 #logo img {
     height: 50px;
+    width: auto;
+    display: block;
+}
+
+#logosmall {
+    display: none;
+}
+
+#logosmall img {
+    height: 40px;
     width: auto;
     display: block;
 }
@@ -77,12 +100,7 @@ header {
     margin-left: 15px;
 }
 
-.header-center-section {
-    display: flex;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
+/* Navigation styles */
 #NavCenter {
     display: flex;
     justify-content: center;
@@ -114,11 +132,7 @@ header {
     background-color: var(--promo-color);
 }
 
-.header-right-section {
-    justify-content: flex-end;
-    gap: 5px;
-}
-
+/* Search bar styles */
 #searchbar {
     display: flex;
 }
@@ -161,6 +175,7 @@ header {
     background-color: var(--accent-color);
 }
 
+/* Cart and theme toggle styles */
 #koszyk {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -226,21 +241,12 @@ html[data-theme='dark'] #theme-toggle {
 
 html[data-theme='dark'] #theme-toggle::after {
     transform: translateX(30px);
-    background-color: #dad9d6; 
+    background-color: #dad9d6;
     box-shadow: 0 0 8px rgba(218, 217, 214, 0.7);
     clip-path: circle(50% at 75% 50%);
 }
 
-#logosmall {
-    display: none;
-}
-
-#logosmall img {
-    height: 40px;
-    width: auto;
-    display: block;
-}
-
+/* Main content styles */
 #content {
     width: 100%;
     padding: 20px 0;
@@ -260,6 +266,7 @@ html[data-theme='dark'] #theme-toggle::after {
     margin-bottom: 20px;
 }
 
+/* Product styles */
 #product {
     display: flex;
     flex-direction: row;
@@ -267,8 +274,8 @@ html[data-theme='dark'] #theme-toggle::after {
     gap: 30px;
 }
 
-#leftProduct { 
-    flex: 1 1 40%; 
+#leftProduct {
+    flex: 1 1 40%;
 }
 
 #rightProduct {
@@ -298,19 +305,18 @@ html[data-theme='dark'] #theme-toggle::after {
     object-fit: contain;
 }
 
-#productHeader { 
-    font-size: 28px; 
-    font-weight: 700; 
+#productHeader {
+    font-size: 28px;
+    font-weight: 700;
 }
 
-#price { 
-    font-size: 24px; 
-    font-weight: bold; 
+#price {
+    font-size: 24px;
+    font-weight: bold;
 }
 
-/* --- POCZĄTEK ZMIAN --- */
-/* Poprawione selektory, aby odnosiły się bezpośrednio do przycisków z ID */
-#buy_now, 
+/* Product buttons */
+#buy_now,
 #add_to_cart {
     min-width: 200px;
     width: 210px;
@@ -324,15 +330,14 @@ html[data-theme='dark'] #theme-toggle::after {
     cursor: pointer;
 }
 
-#buy_now:hover, 
-#add_to_cart:hover { 
-    background-color: var(--accent-secondary); 
+#buy_now:hover,
+#add_to_cart:hover {
+    background-color: var(--accent-secondary);
 }
-/* --- KONIEC ZMIAN --- */
 
-
+/* Carousel styles */
 .carousel-btn {
-    display: none;
+    display: block;
     position: absolute;
     top: 50%;
     width: 50px;
@@ -348,43 +353,46 @@ html[data-theme='dark'] #theme-toggle::after {
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
 
-#prevBtn { 
-    left: 10px; 
+#prevBtn {
+    left: 10px;
 }
 
-#nextBtn { 
-    right: 10px; 
+#nextBtn {
+    right: 10px;
 }
 
-#description h2 { 
-    font-size: 24px; 
-    margin-bottom: 15px; 
+/* Product description styles */
+#description h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
 }
 
-#descrP { 
-    font-size: 16px; 
-    line-height: 1.6; 
+#descrP {
+    font-size: 16px;
+    line-height: 1.6;
 }
 
-#detailsDiv table { 
-    width: 100%; 
-    border-collapse: collapse; 
-    font-size: 16px; 
+/* Product details styles */
+#detailsDiv table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
 }
 
-#detailsDiv td { 
-    padding: 10px; 
-    border-bottom: 1px solid var(--border-color); 
+#detailsDiv td {
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
 }
 
-#detailsDiv tr:last-child td { 
-    border-bottom: none; 
+#detailsDiv tr:last-child td {
+    border-bottom: none;
 }
 
-#detailsDiv td:first-child { 
-    font-weight: bold; 
+#detailsDiv td:first-child {
+    font-weight: bold;
 }
 
+/* Footer styles */
 footer {
     width: 100%;
     padding-top: 20px;
@@ -397,6 +405,7 @@ footer {
     flex-shrink: 0;
 }
 
+/* Responsive styles */
 @media (max-width: 1024px) {
     .header-left-section {
         flex: 0.5;
@@ -425,9 +434,9 @@ footer {
     }
 }
 
-@media (max-width: 900px) and (min-width: 768px){
+@media (max-width: 900px) and (min-width: 768px) {
     .header-center-section,
-    .header-right-section{
+    .header-right-section {
         display: flex;
     }
 }
@@ -436,12 +445,15 @@ footer {
     header {
         height: 100px;
     }
-    .header-left-section{
+    
+    .header-left-section {
         margin-bottom: 0.5em;
     }
-    #logo{
+    
+    #logo {
         margin-left: 0px;
     }
+    
     .NavBtn {
         font-size: 20px;
         padding: 0.4em 0.8em;
@@ -452,25 +464,25 @@ footer {
         width: 50px;
     }
     
-    #product { 
-        flex-direction: column; 
-        align-items: center; 
-        text-align: center; 
+    #product {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
     
-    #rightProduct { 
-        align-items: center; 
-        text-align: center; 
+    #rightProduct {
+        align-items: center;
+        text-align: center;
     }
     
-    .carousel-btn { 
-        display: block; 
+    .carousel-btn {
+        display: block;
     }
     
-    #buy_now, 
-    #add_to_cart { 
-        width: 90%; 
-        max-width: 300px; 
+    #buy_now,
+    #add_to_cart {
+        width: 90%;
+        max-width: 300px;
         padding: 12px;
     }
 }
@@ -582,19 +594,19 @@ footer {
         justify-content: space-between;
     }
     
-    .header-left-section { 
-        gap: 10px; 
+    .header-left-section {
+        gap: 10px;
     }
     
-    #logo img { 
-        height: 32px; 
+    #logo img {
+        height: 32px;
     }
     
-    #hamburger { 
-        display: flex; 
-        font-size: 22px; 
-        padding: 0; 
-        margin-left: 8px; 
+    #hamburger {
+        display: flex;
+        font-size: 22px;
+        padding: 0;
+        margin-left: 8px;
     }
     
     #NavCenter {
@@ -614,7 +626,7 @@ footer {
         opacity: 0;
         pointer-events: none;
         transition: 
-            max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+            max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
             opacity 0.6s;
     }
     
@@ -627,36 +639,36 @@ footer {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     
-    #NavCenter:not(.nav-active) .NavBtn { 
-        display: none; 
+    #NavCenter:not(.nav-active) .NavBtn {
+        display: none;
     }
     
-    #NavCenter.nav-active .NavBtn { 
-        opacity: 1; 
-        visibility: visible; 
+    #NavCenter.nav-active .NavBtn {
+        opacity: 1;
+        visibility: visible;
     }
     
-    #NavCenter .NavBtn { 
-        text-align: center; 
-        margin: 8px 15px; 
-        padding: 12px 10px; 
-        font-size: 17px; 
-        opacity: 0; 
-        visibility: hidden; 
+    #NavCenter .NavBtn {
+        text-align: center;
+        margin: 8px 15px;
+        padding: 12px 10px;
+        font-size: 17px;
+        opacity: 0;
+        visibility: hidden;
     }
     
-    #searchbar { 
-        flex-grow: 1; 
-        flex-shrink: 1; 
+    #searchbar {
+        flex-grow: 1;
+        flex-shrink: 1;
     }
     
-    #searchbar input[type="text"] { 
-        width: 100%; 
-        font-size: 13px; 
+    #searchbar input[type="text"] {
+        width: 100%;
+        font-size: 13px;
     }
     
-    #lupa { 
-        display: none; 
+    #lupa {
+        display: none;
     }
     
     #koszyk {
@@ -668,8 +680,8 @@ footer {
         justify-content: center;
     }
     
-    #koszyk i { 
-        font-size: 18px; 
+    #koszyk i {
+        font-size: 18px;
     }
     
     #theme-toggle {
