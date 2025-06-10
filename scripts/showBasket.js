@@ -1,4 +1,5 @@
 const dataPath = "../data.json";
+let productsData = null;
 
 async function getData(path) {
     const raw = await fetch(path);
@@ -6,46 +7,81 @@ async function getData(path) {
     return parsed;
 }
 
-// Funkcja została uproszczona dla większej stabilności
 async function deleteObj(ID) {
     let basket = window.localStorage.getItem("basket");
-    if (!basket) return; // Zabezpieczenie na wypadek braku koszyka
+    if (!basket || !productsData) return;
 
     let array = basket.split(";");
     let newArrayString = "";
-    let itemFoundAndRemoved = false;
+    let newAmount = 0;
+    let itemRemovedCompletely = false;
 
     for (let i = 0; i < array.length; i++) {
-        if (!array[i]) continue; // Pomiń puste rekordy
+        if (!array[i]) continue;
         let record = array[i].split("-");
         let currentID = record[0];
         let currentAmount = parseInt(record[1]);
 
-        if (currentID === ID && !itemFoundAndRemoved) {
-            currentAmount--; // Zmniejsz ilość tylko raz
-            itemFoundAndRemoved = true;
+        if (currentID === ID) {
+            currentAmount--;
+            newAmount = currentAmount;
         }
 
         if (currentAmount > 0) {
             newArrayString += currentID + "-" + currentAmount + ";";
+        } else if (currentID === ID) {
+            itemRemovedCompletely = true;
+        }
+    }
+    window.localStorage.setItem("basket", newArrayString);
+
+    if (itemRemovedCompletely) {
+        document.getElementById(ID).remove();
+    } else {
+        const priceElement = document.getElementById("price" + ID);
+        const product = productsData[ID];
+        priceElement.innerHTML = `Cena : ${product.price} zł, szt : ${newAmount}`;
+    }
+
+    let totalPayment = 0;
+    const finalBasket = window.localStorage.getItem("basket");
+    if (finalBasket) {
+        const queryArr = finalBasket.split(";");
+        for (let i = 0; i < queryArr.length; i++) {
+            if (!queryArr[i]) continue;
+            const details = queryArr[i].split("-");
+            totalPayment += parseInt(details[1]) * productsData[details[0]].price;
         }
     }
 
-    window.localStorage.setItem("basket", newArrayString);
-    // Odświeżenie strony jest najprostszym i najbardziej niezawodnym sposobem
-    // na zaktualizowanie widoku koszyka po zmianach.
-    window.location.reload();
+    const sumElement = document.getElementById("sum");
+    if (sumElement) {
+        sumElement.textContent = `Do zapłaty: ${totalPayment.toFixed(2)} zł`;
+    }
+    
+    if (!finalBasket || finalBasket.trim() === "") {
+        const summaryContainer = document.querySelector(".basket-summary");
+        if (summaryContainer) {
+            summaryContainer.remove();
+        }
+        const mainContainer = document.getElementById("content");
+        const emptyContainer = document.createElement("div");
+        emptyContainer.setAttribute("class", "product-basket empty-basket");
+        const emptyDescription = document.createElement("p");
+        emptyDescription.innerHTML = "Wygląda na to, że twój koszyk jest pusty. Wypełnijmy go! <a href='/index.html'>Kliknij tutaj, aby wrócić na stronę główną</a>";
+        emptyContainer.appendChild(emptyDescription);
+        mainContainer.appendChild(emptyContainer);
+    }
 }
 
 async function clearCart() {
     window.localStorage.removeItem("basket");
-    // Przekierowanie na stronę główną po złożeniu zamówienia
     window.location.href = '/index.html'; 
 }
 
 async function generatePage() {
     const mainContainer = document.getElementById("content");
-    const productsData = await getData(dataPath);
+    productsData = await getData(dataPath);
     let basket = window.localStorage.getItem("basket");
     let totalPayment = 0;
     let itemCount = 0;
@@ -53,19 +89,18 @@ async function generatePage() {
     if (basket) {
         const queryArr = basket.split(";");
         for (let i = 0; i < queryArr.length; i++) {
-            if (!queryArr[i]) continue; // Pomiń puste rekordy
+            if (!queryArr[i]) continue;
 
             const details = queryArr[i].split("-");
             const ID = details[0];
             const amount = parseInt(details[1]);
             
             let obj = productsData[ID];
-            if (!obj) continue; // Pomiń, jeśli produkt o danym ID nie istnieje
+            if (!obj) continue;
 
             totalPayment += amount * obj.price;
             itemCount++;
 
-            // --- Tworzenie elementu produktu w koszyku ---
             const productContainer = document.createElement("div");
             productContainer.setAttribute("id", ID);
             productContainer.setAttribute("class", "product-basket");
@@ -103,7 +138,7 @@ async function generatePage() {
             deleteButton.innerHTML = "Usuń z koszyka";
             deleteButton.setAttribute("class", "btn btn-delete");
             deleteButton.addEventListener("click", (e) => {
-                e.stopPropagation(); // Zapobiega przejściu na stronę produktu po kliknięciu przycisku
+                e.stopPropagation();
                 deleteObj(ID);
             });
             dataRight.appendChild(deleteButton);
@@ -116,7 +151,6 @@ async function generatePage() {
     }
 
     if (itemCount === 0) {
-        // --- Wyświetlanie informacji o pustym koszyku ---
         const emptyContainer = document.createElement("div");
         emptyContainer.setAttribute("class", "product-basket empty-basket");
         const emptyDescription = document.createElement("p");
@@ -124,7 +158,6 @@ async function generatePage() {
         emptyContainer.appendChild(emptyDescription);
         mainContainer.appendChild(emptyContainer);
     } else {
-        // --- Tworzenie podsumowania koszyka ---
         const summaryContainer = document.createElement("div");
         summaryContainer.setAttribute("class", "basket-summary");
 
