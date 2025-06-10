@@ -1,14 +1,14 @@
 [
     {"id":"0",
     "name":"Słuchawki bezprzewodowe JBL Tune 720bt",
-    "description":"sluchawki blutuf","price":"30.95",
+    "description":"Wygodne Słuchawki bluetooth","price":"30.95",
     "details":"Kolor:Czarny;Zasięg:15m;Aktywne usuwanie szumu:Tak;Czas Czuwania:28h;Czas pracy:8h",
     "images": [
         "images/1_1.webp",
         "images/1_2.webp",
         "images/1_3.webp"
     ]},
-    {"id":"1","name":"Mysz dla graczy Razer Basilisk V3","description":"Twórz, steruj i graj we własnym stylu dzięki nowej, modelowej ergonomicznej myszy gamingowej Razer Basilisk V3, która umożliwia personalizację z myślą o większej skuteczności.",
+    {"id":"1","name":"Mysz dla graczy Razer Basilisk V3","description":"Twórz, steruj i graj we własnym stylu dzięki nowej, modelowej ergonomicznej myszy gamingowej Razer Basilisk V3.",
     "price":"289.99",
     "details":"Typ myszy:Dla graczy;Kolor:Czarny;Rozdzielczość:26000 dpi;Profil:Praworęczny;Ilość przycisków:11;Łączność:Przewodowa",
     "images":[
@@ -16,15 +16,38 @@
         "images/2_2.webp",
         "images/2_3.webp"
     ]},
-    {"id":"2","name":"Głośniki biurowe logitech","description":"glosniki logitech","price":"110.00"},
-    {"id":"3","name":"Pasta termoprzewodząca 10g","description":"pasta thermal grizzly","price":"29.99"},
-    {"id":"4","name":"Płyn do czyszczenia monitorów LCD","description":"cleaner silver monkey 100ml","price":"25.99"},
-    {"id":"5","name":"Klawiatura gamingowa z podświetleniem","description":"corsair rgb","price":"329.99"},
-    {"id":"6","name":"Gamignowe Słuchawki przewodowe HyperX Cloud Alpha","description":"sluchawki gamingowe","price":"30.95"},
-    {"id":"7","name":"HyperX Cloud Alpha","description":"sluchawki gamingowe","price":"30.95"},
+    {"id":"2","name":"Logitech 2.1 Z625 THX Speaker System","description":"glosniki logitech",
+    "price":"110.00",
+    "details":"Układ głośników:2.1;Moc głośników:70W;Moc Subwoofera:130W",
+    "images":[
+        "images/3_1.webp",
+        "images/3_2.webp"
+    ]},
+    {"id":"3","name":"Pasta Thermal Grizzly Kryonaut 1g","description":"pasta thermal grizzly Kryonaut 1g, superprzewodząca",
+    "price":"35.99",
+    "details":"Wielkość:1g;Przewodność cieplna:12,5 W/mK;",
+    "images" : [
+        "images/4_1.webp",
+        "images/4_2.webp"
+    ]},
+    {"id":"4","name":"Płyn do czyszczenia monitorów LCD","description":"cleaner silver monkey 100ml",
+    "price":"25.99",
+    "images":[
+        "images/5_1.webp"
+    ]},
+    {"id":"5","name":"Klawiatura gamingowa z podświetleniem","description":"Corsair K100 Air Wireless (Ultra Low Profile Tactile)",
+    "price":"799.99",
+    "images": [
+        "images/6_1.webp"
+    ]},
+    {"id":"6","name":"Gamignowe Słuchawki przewodowe","description":"SteelSeries Arctis Nova 7P white",
+    "price":"379.95",
+    "images":[
+        "images/9_1.webp"
+    ]},
     {"id":"7","name":"HyperX Cloud Alpha","description":"sluchawki gamingowe","price":"30.95"},
     {"id":"8","name":"HP Smart Tank 720 Kolor Duplex WiFi BLE","description":"Wydajne urządzenie wielofunkcyjne z opcją automatycznego druku dwustronnego",
-    "price":"30.95",
+    "price":"450.99",
     "details":"Kolor:Czarny;WIFI:Tak;Maksymalna Gramatura:250g/m^2;Rozdzielczość maksymalna:4800 x 1200 dpi;Skaner:Tak;Funkcja faxu:Nie",
     "images":[
         "images/8_1.webp",
